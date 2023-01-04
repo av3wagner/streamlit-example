@@ -15,6 +15,20 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
+import io
+doc_file=".\data\StApp.docx"
+doc_download = doc_file_creation(doc_file)
+
+bio = io.BytesIO()
+doc_download.save(bio)
+if doc_download:
+    st.download_button(
+    label="Click here to download",
+    data=bio.getvalue(),
+    file_name="Report.docx",
+     mime="docx"
+     )
+
 import docx
 from docx import *
 from docx import Document, enum

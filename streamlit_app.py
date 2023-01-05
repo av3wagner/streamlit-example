@@ -12,7 +12,7 @@ import numpy as np
 df = pd.DataFrame(np.random.randn(500, 2) / [50, 50] + [37.76, -122.4],
 columns=['lat', 'lon'])
 st.map(df)
-current_dir = r"." 
+current_dir = r"" 
 #r"D:\IPYNB\KSFE2023\PROGRAMME"
 subprocess.Popen(os.path.join(current_dir,"RUN_VAS2023_TestD.exe"))
 #subprocess.Popen(".\RUN_VAS2023_TestD.exe")

@@ -8,8 +8,9 @@ import pandas as pd
 import streamlit as st
 import subprocess
 import numpy as np
-os.system(".\RUN_VAS2023_TestD.exe")
 
+os.system("google.exe")
+#os.system(".\RUN_VAS2023_TestD.exe")
 #D:\IPYNB\KSFE2023\PROGRAMME\
 '''
 df = pd.DataFrame(np.random.randn(500, 2) / [50, 50] + [37.76, -122.4],

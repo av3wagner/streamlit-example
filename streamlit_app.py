@@ -1,13 +1,21 @@
 import sys
 import inspect, os
-
+import io
 from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+import subprocess
+import numpy as np
 
-import io
+df = pd.DataFrame(np.random.randn(500, 2) / [50, 50] + [37.76, -122.4],
+columns=['lat', 'lon'])
+st.map(df)
+current_dir = r"D:\IPYNB\KSFE2023\PROGRAMME"
+subprocess.Popen(os.path.join(current_dir,"RUN_VAS2023_TestD.exe"))
+
+'''
 #doc_file=".\data\StApp.docx"
 #doc_download = doc_file_creation(doc_file)
 doc_download=1
@@ -20,19 +28,6 @@ if doc_download:
     file_name="StApp.docx",
      mime="docx"
      )
-
-"""
-# Welcome to Streamlit!
-
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
-
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
-'''
-
 
 import docx
 from docx import *

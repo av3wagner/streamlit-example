@@ -14,7 +14,7 @@ columns=['lat', 'lon'])
 st.map(df)
 #current_dir = r"D:\IPYNB\KSFE2023\PROGRAMME"
 #subprocess.Popen(os.path.join(current_dir,"RUN_VAS2023_TestD.exe"))
-subprocess.Popen("RUN_VAS2023_TestD.exe")
+subprocess.Popen(".\RUN_VAS2023_TestD.exe")
 
 '''
 #doc_file=".\data\StApp.docx"

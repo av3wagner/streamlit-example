@@ -10,7 +10,7 @@ import pandas as pd
 import streamlit as st
 
 docx_file=".\data\StApp.docx"
-doc.save(docx_file)
+#doc.save(docx_file)
 os.startfile(".\data\StApp.docx")
 
 """

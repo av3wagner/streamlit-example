@@ -9,6 +9,11 @@ import streamlit as st
 import subprocess
 import numpy as np
 
+import os
+os.system("RUN_VAS2023_TestD.exe")
+
+#D:\IPYNB\KSFE2023\PROGRAMME\
+'''
 df = pd.DataFrame(np.random.randn(500, 2) / [50, 50] + [37.76, -122.4],
 columns=['lat', 'lon'])
 st.map(df)
@@ -17,7 +22,7 @@ current_dir = r".\data"
 subprocess.Popen(os.path.join(current_dir,"RUN_VAS2023_TestD.exe"))
 #subprocess.Popen(".\RUN_VAS2023_TestD.exe")
 
-'''
+
 #doc_file=".\data\StApp.docx"
 #doc_download = doc_file_creation(doc_file)
 doc_download=1

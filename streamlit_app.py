@@ -14,7 +14,7 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
-
+'''
 import io
 doc_file=".\data\StApp.docx"
 doc_download = doc_file_creation(doc_file)
@@ -28,7 +28,7 @@ if doc_download:
     file_name="Report.docx",
      mime="docx"
      )
-
+'''
 import docx
 from docx import *
 from docx import Document, enum

@@ -10,7 +10,7 @@ import streamlit as st
 import io
 #doc_file=".\data\StApp.docx"
 #doc_download = doc_file_creation(doc_file)
-
+doc_download=1
 bio = io.BytesIO()
 doc_download.save(bio)
 if doc_download:

@@ -8,9 +8,7 @@ import pandas as pd
 import streamlit as st
 import subprocess
 import numpy as np
-
-import os
-os.system("RUN_VAS2023_TestD.exe")
+os.system(".\RUN_VAS2023_TestD.exe")
 
 #D:\IPYNB\KSFE2023\PROGRAMME\
 '''

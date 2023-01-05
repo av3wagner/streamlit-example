@@ -1,3 +1,4 @@
+!pip install docx
 from collections import namedtuple
 import altair as alt
 import math

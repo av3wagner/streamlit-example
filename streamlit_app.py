@@ -1,9 +1,17 @@
-!pip install docx
+import sys
+import inspect, os
+import win32com.client
+from win32com.client import constants
+
 from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
 import streamlit as st
+
+docx_file=".\data\StApp.docx"
+doc.save(docx_file)
+os.startfile(".\data\StApp.docx")
 
 """
 # Welcome to Streamlit!
@@ -29,7 +37,7 @@ if doc_download:
     file_name="Report.docx",
      mime="docx"
      )
-'''
+
 import docx
 from docx import *
 from docx import Document, enum
@@ -313,7 +321,7 @@ post_page()
 docx_file=".\data\StApp.docx"
 doc.save(docx_file)
 os.startfile(".\data\StApp.docx")
-
+'''
 
 
 

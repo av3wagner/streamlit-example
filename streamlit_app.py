@@ -8,8 +8,8 @@ import pandas as pd
 import streamlit as st
 
 import io
-doc_file=".\data\StApp.docx"
-doc_download = doc_file_creation(doc_file)
+#doc_file=".\data\StApp.docx"
+#doc_download = doc_file_creation(doc_file)
 
 bio = io.BytesIO()
 doc_download.save(bio)

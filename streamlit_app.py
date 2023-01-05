@@ -1,7 +1,7 @@
 import sys
 import inspect, os
-import win32com.client
-from win32com.client import constants
+#import win32com.client
+#from win32com.client import constants
 
 from collections import namedtuple
 import altair as alt

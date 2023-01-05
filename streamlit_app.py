@@ -1,7 +1,5 @@
 import sys
 import inspect, os
-#import win32com.client
-#from win32com.client import constants
 
 from collections import namedtuple
 import altair as alt
@@ -9,9 +7,19 @@ import math
 import pandas as pd
 import streamlit as st
 
-docx_file=".\data\StApp.docx"
-#doc.save(docx_file)
-os.startfile(".\data\StApp.docx")
+import io
+doc_file=".\data\StApp.docx"
+doc_download = doc_file_creation(doc_file)
+
+bio = io.BytesIO()
+doc_download.save(bio)
+if doc_download:
+    st.download_button(
+    label="Click here to download",
+    data=bio.getvalue(),
+    file_name="StApp.docx",
+     mime="docx"
+     )
 
 """
 # Welcome to Streamlit!
@@ -24,19 +32,7 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 '''
-import io
-doc_file=".\data\StApp.docx"
-doc_download = doc_file_creation(doc_file)
 
-bio = io.BytesIO()
-doc_download.save(bio)
-if doc_download:
-    st.download_button(
-    label="Click here to download",
-    data=bio.getvalue(),
-    file_name="Report.docx",
-     mime="docx"
-     )
 
 import docx
 from docx import *

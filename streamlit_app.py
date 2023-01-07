@@ -9,11 +9,21 @@ import streamlit as st
 import subprocess
 import numpy as np
 
+binary_file = 'KSFE2023.exe'
+with open(binary_file, "rb") as file:
+     btn = st.download_button(
+         label="Download KSFE2023.exe",
+         data=file,
+         file_name="KSFE2023.exe",
+         mime="application/octet-stream"
+)
+
+'''
 os.system('start C:\Programs Files\Internet Explorer\iexplore.exe')
 #os.system("start google.exe")
 #os.system(".\RUN_VAS2023_TestD.exe")
 #D:\IPYNB\KSFE2023\PROGRAMME\
-'''
+
 df = pd.DataFrame(np.random.randn(500, 2) / [50, 50] + [37.76, -122.4],
 columns=['lat', 'lon'])
 st.map(df)

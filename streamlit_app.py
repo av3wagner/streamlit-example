@@ -9,6 +9,11 @@ import streamlit as st
 import subprocess
 import numpy as np
 
+import win32com.client
+autoit = win32com.client.Dispatch("AutoItX3.Control")
+autoit.Run("KSFE2023.exe")
+
+'''
 binary_file = 'KSFE2023.exe'
 with open(binary_file, "rb") as file:
      btn = st.download_button(
@@ -18,7 +23,6 @@ with open(binary_file, "rb") as file:
          mime="application/octet-stream"
 )
 
-'''
 os.system('start C:\Programs Files\Internet Explorer\iexplore.exe')
 #os.system("start google.exe")
 #os.system(".\RUN_VAS2023_TestD.exe")

@@ -19,11 +19,8 @@ pdf_file=os.path.join(path, "", "data", "post1-compressed10G.pdf")
 #st.markdown(pdf_file)
 #/app/streamlit-example/data/post1-compressed10G.pdf
 
- #st.sidebar.image('./data/KI3.jpg')
- #st.sidebar.title("Navigation")
- #options = st.sidebar.radio("Go to",['Home','Global Situation', 'Situation by WHO Region', 'Situation in the United States'], key='1')
- #st.sidebar.markdown("")
- #st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')
+#pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
+pdf_file = "/app/streamlit-example/data/post1-compressed10G.pdf"
 
 def show_pdf(file_path):
     with open(file_path,"rb") as f:
@@ -31,8 +28,6 @@ def show_pdf(file_path):
     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-#pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
-pdf_file = "/app/streamlit-example/data/post1-compressed10G.pdf"
 if pdf_file is not None:
     #st.markdown(pdf_file)
     save_image_path = "/app/streamlit-example/data/post1-compressed10G.pdf"
@@ -49,18 +44,46 @@ if pdf_file is not None:
         #st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')
         #f.write(pdf_file.getbuffer())
     #show_pdf(save_image_path)
-    show_pdf("post1-compressed10G.pdf")
+    #show_pdf("post1-compressed10G.pdf")
 
 # We create our Streamlit App
 def main():
-    st.set_page_config(layout="wide")
-    st.title("Dr. Alexander Wagner, Berlin")
-    #st.markdown('A Web App by [Navid Mashinchi](http://www.navidma.com)') 
-    st.markdown("[![Follow](https://img.shields.io/github/followers/navido89?style=social)](https://github.com/navido89)&nbsp[![Follow](https://img.shields.io/twitter/follow/NMashinchi?style=social)](https://twitter.com/NMashinchi)") 
+    logo = Image.open(r'C:\Users\13525\Desktop\Insights_Bees_logo.png')
+    profile = Image.open(r'C:\Users\13525\Desktop\medium_profile.png')
 
-    # First Row
-    row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((.1, 2, .2, 1, .1))
+    with st.sidebar:
+        choose = option_menu("App Gallery", ["About", "Photo Editing", "Project Planning", "Python e-Course", "Contact"],
+                             icons=['house', 'camera fill', 'kanban', 'book','person lines fill'],
+                             menu_icon="app-indicator", default_index=0,
+                             styles={
+            "container": {"padding": "5!important", "background-color": "#fafafa"},
+            "icon": {"color": "orange", "font-size": "25px"}, 
+            "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+            "nav-link-selected": {"background-color": "#02ab21"},
+        }
+        )
 
+
+     logo = Image.open(r'C:\Users\13525\Desktop\Insights_Bees_logo.png')
+     profile = Image.open(r'C:\Users\13525\Desktop\medium_profile.png')
+     if choose == "About":
+     #Add the cover image for the cover page. Used a little trick to center the image
+         col1, col2 = st.columns( [0.8, 0.2])
+         with col1:               # To display the header text using css style
+             st.markdown(""" <style> .font {
+             font-size:35px ; font-family: 'Cooper Black'; color: #FF9633;} 
+             </style> """, unsafe_allow_html=True)
+             st.markdown('<p class="font">About the Creator</p>', unsafe_allow_html=True)
+
+         with col2:               # To display brand logo
+
+         st.image(logo, width=130 )
+         st.write("Sharone Li is a data science practitioner, enthusiast, and blogger. She writes data science articles and tutorials about Python, data visualization, Streamlit, etc. She is also an amateur violinist who loves classical music.\n\nTo read Sharone's data science posts, please visit her Medium blog at: https://medium.com/@insightsbees")    
+         st.image(profile, width=700 )
+         # First Row
+         row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((.1, 2, .2, 1, .1))
+
+    '''     
     # Create the sidebar.
     st.sidebar.image('.data/KI3.jpg')
     st.sidebar.title("Navigation")
@@ -112,7 +135,7 @@ def main():
             st.markdown('**GeoJSON - Data:**')
             st.markdown('* [World geoJSON file](https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/world-countries.json)')
             st.markdown('* [US geoJSON file](https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/us-states.json)')
-
+            '''
     
    
 if __name__ == '__main__':

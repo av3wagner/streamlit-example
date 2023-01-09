@@ -39,6 +39,8 @@ if pdf_file is not None:
     #save_image_path = pdf_file.name
     with open(save_image_path, "wb") as f:
         #st.markdown("Добрый день дорогие одноклассники!")
+        st.set_page_config(layout="wide")
+        st.title("Dr. Alexander Wagner, Berlin")
         st.sidebar.title("Navigation")
         st.sidebar.markdown("")
         st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')

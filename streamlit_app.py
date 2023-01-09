@@ -41,7 +41,7 @@ def show_pdf(file_path):
 #pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
 pdf_file = "/app/streamlit-example/data/post1-compressed10G.pdf"
 if pdf_file is not None:
-    save_image_path = './assets/'+pdf_file.name
+    save_image_path = '/app/streamlit-example/assets/'+pdf_file.name
     with open(save_image_path, "wb") as f:
         f.write(pdf_file.getbuffer())
     show_pdf(save_image_path)

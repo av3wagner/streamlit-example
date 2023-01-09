@@ -63,7 +63,7 @@ def main():
         }
         )
 
-
+     ''' 
      #logo = Image.open('KI3.jpg')
      #profile = Image.open('KI.jpg')
      if choose == "About":
@@ -83,7 +83,7 @@ def main():
          # First Row
          row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((.1, 2, .2, 1, .1))
 
-    '''     
+        
     # Create the sidebar.
     st.sidebar.image('.data/KI3.jpg')
     st.sidebar.title("Navigation")

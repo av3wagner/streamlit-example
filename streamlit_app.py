@@ -48,7 +48,7 @@ if pdf_file is not None:
              st.markdown(""" <style> .font {
              font-size:15px ; font-family: 'Cooper Black'; color: #FF9633;} 
              </style> """, unsafe_allow_html=True)
-             st.markdown('<p class="font">About the Creator</p>', unsafe_allow_html=True)
+             st.markdown('<p class="font">Об авторе</p>', unsafe_allow_html=True)
 
         with col2:  
             st.title("Dr. Alexander Wagner, Berlin")

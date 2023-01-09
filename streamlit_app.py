@@ -10,9 +10,10 @@ import inspect, os
 
 path = os.getcwd()
 #print(path)
-st.markdown(path)
+#st.markdown(path)
+#/app/streamlit-example
 path = "./data/"
-print(path)
+st.markdown(path)
 
 '''
 with st.sidebar:

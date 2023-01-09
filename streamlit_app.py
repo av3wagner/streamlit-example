@@ -13,6 +13,7 @@ print(path)
 path = "./data/"
 print(path)
 
+'''
 with st.sidebar:
     choose = option_menu("Main Menu", ["About", "Projects", "Blog","Apps", "Contact"],
                          icons=['house', 'bar-chart-line','file-slides','app-indicator','person lines fill'],
@@ -24,6 +25,7 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "#24A608"},
     }
     )
+'''
 
 def show_pdf(file_path):
     with open(file_path,"rb") as f:

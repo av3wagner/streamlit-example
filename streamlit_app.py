@@ -22,6 +22,9 @@ pdf_file=os.path.join(path, "", "data", "post1-compressed10G.pdf")
 #pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
 pdf_file = "/app/streamlit-example/data/post1-compressed10G.pdf"
 
+logo = Image.open('data/KI3.jpg')
+profile = Image.open('data/KI.jpg')
+
 def show_pdf(file_path):
     with open(file_path,"rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
@@ -34,20 +37,20 @@ if pdf_file is not None:
     #save_image_path = pdf_file.name
     with open(save_image_path, "wb") as f:
         #st.markdown("Добрый день дорогие одноклассники!")
-        st.set_page_config(layout="wide")
-        st.title("Dr. Alexander Wagner, Berlin")
-        st.markdown("")
-        st.markdown("")
-        st.image('./data/KI3.jpg')
+        #st.set_page_config(layout="wide")
+        #st.title("Dr. Alexander Wagner, Berlin")
+        #st.markdown("")
+        #st.markdown("")
+        #st.image('./data/KI3.jpg')
         
         col1, col2 = st.columns( [0.8, 0.2])
-        with col1:               # To display the header text using css style
+        with col1:              
              st.markdown(""" <style> .font {
              font-size:35px ; font-family: 'Cooper Black'; color: #FF9633;} 
              </style> """, unsafe_allow_html=True)
              st.markdown('<p class="font">About the Creator</p>', unsafe_allow_html=True)
 
-        with col2:               # To display brand logo
+        with col2:              
             st.image(logo, width=130 )
             st.write("Sharone Li is a data science practitioner, enthusiast, and blogger. She writes data science articles and tutorials about Python, data visualization, Streamlit, etc. She is also an amateur violinist who loves classical music.\n\nTo read Sharone's data science posts, please visit her Medium blog at: https://medium.com/@insightsbees")    
             st.image(profile, width=700 )

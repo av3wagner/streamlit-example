@@ -8,7 +8,9 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="auto",
 )
-dir = "E:/IPYNB/KSFE2023/ExSample/Personal_Website-Gut5/Docs/"
+
+#dir = "E:/IPYNB/KSFE2023/ExSample/Personal_Website-Gut5/Docs/"
+dir = "./data/"
 @st.cache(persist=True,allow_output_mutation=True,show_spinner=True,suppress_st_warning=True)
 def render_pdf(file):
     # Opening file from file path

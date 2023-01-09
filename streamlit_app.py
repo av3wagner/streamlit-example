@@ -28,11 +28,12 @@ def show_pdf(file_path):
 #pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
 pdf_file = "/app/streamlit-example/data/post1-compressed10G.pdf"
 if pdf_file is not None:
-    st.markdown(pdf_file)
+    #st.markdown(pdf_file)
     save_image_path = "/app/streamlit-example/data/post1-compressed10G.pdf"
     #save_image_path = pdf_file.name
     with open(save_image_path, "wb") as f:
-        f.write(pdf_file.getbuffer())
+        st.markdown(save_image_path)
+        #f.write(pdf_file.getbuffer())
     show_pdf(save_image_path)
 
 

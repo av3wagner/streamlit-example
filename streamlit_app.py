@@ -33,7 +33,7 @@ if pdf_file is not None:
     save_image_path = "/app/streamlit-example/data/post1-compressed10G.pdf"
     #save_image_path = pdf_file.name
     with open(save_image_path, "wb") as f:
-        st.markdown(save_image_path)
+        st.markdown("Добрый день дорогие одноклассники!")
         #f.write(pdf_file.getbuffer())
     #show_pdf(save_image_path)
     show_pdf("post1-compressed10G.pdf")

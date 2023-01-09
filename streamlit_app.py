@@ -47,7 +47,7 @@ if pdf_file is not None:
             st.title("Dr. Alexander Wagner, Berlin")
             st.markdown("")
             #st.image(logo, width=130 )
-            st.image(profile, width=700 )
+            st.image(profile, width=500 )
             st.write("Дорогие одноклассники! Вашему вниманию предлагаются воспоминания выпускников сш. им В.И.Ленина 1968 года. Это первая редакция сборника, так называемы сигнальный вариан. Авторы продолжают работать дальше и расширять сборник. В скором времени он будет предложен вам для прочтения. Желаем вам приятного чтения!")    
             #show_pdf(save_image_path)
             show_pdf("post1-compressed10G.pdf")

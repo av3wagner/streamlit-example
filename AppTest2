@@ -6,7 +6,6 @@ import pandas as pd
 import base64
 import sys
 import inspect, os
-
 from streamlit_text_rating.st_text_rater import st_text_rater
 
 path = os.getcwd()
@@ -38,7 +37,7 @@ pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
 #print(pdf_file.name)
 if pdf_file is not None:
     #save_image_path = './assets/'+pdf_file.name
-    save_image_path = 'E:\\IPYNB\\KSFE2023\\ExSample\\Personal_Website-Gut5\\assets\\'+pdf_file.name
+    save_image_path = 'pdf_file.name
     with open(save_image_path, "wb") as f:
         f.write(pdf_file.getbuffer())
     show_pdf(save_image_path)

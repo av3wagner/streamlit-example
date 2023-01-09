@@ -10,10 +10,11 @@ import subprocess
 import numpy as np
 import win32com.client
 
+'''
 autoit = win32com.client.Dispatch("AutoItX3.Control")
 autoit.Run("KSFE2023.exe")
 
-'''
+
 binary_file = 'KSFE2023.exe'
 with open(binary_file, "rb") as file:
      btn = st.download_button(
@@ -27,6 +28,7 @@ os.system('start C:\Programs Files\Internet Explorer\iexplore.exe')
 #os.system("start google.exe")
 #os.system(".\RUN_VAS2023_TestD.exe")
 #D:\IPYNB\KSFE2023\PROGRAMME\
+'''
 
 df = pd.DataFrame(np.random.randn(500, 2) / [50, 50] + [37.76, -122.4],
 columns=['lat', 'lon'])
@@ -333,7 +335,6 @@ post_page()
 docx_file=".\data\StApp.docx"
 doc.save(docx_file)
 os.startfile(".\data\StApp.docx")
-'''
 
 
 

@@ -12,8 +12,10 @@ path = os.getcwd()
 #print(path)
 #st.markdown(path)
 #/app/streamlit-example
-path = "./data/"
-st.markdown(path)
+
+pdf_file=os.path.join(path, "", "data", "post1-compressed10G.pdf")
+#path = "./data/"
+st.markdown(pdf_file)
 
 '''
 with st.sidebar:

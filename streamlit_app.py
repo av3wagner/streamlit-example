@@ -48,8 +48,8 @@ if pdf_file is not None:
 
 # We create our Streamlit App
 def main():
-    logo = Image.open('./data/KI3.jpg')
-    profile = Image.open('./data/KI.jpg')
+    logo = Image.open('KI3.jpg')
+    profile = Image.open(KI.jpg')
 
     with st.sidebar:
         choose = option_menu("App Gallery", ["About", "Photo Editing", "Project Planning", "Python e-Course", "Contact"],
@@ -64,8 +64,8 @@ def main():
         )
 
 
-     logo = Image.open('/app/streamlit-example//data/KI3.jpg')
-     profile = Image.open('/app/streamlit-example//data/KI.jpg')
+     logo = Image.open('.data/KI3.jpg')
+     profile = Image.open(.data/KI.jpg')
      if choose == "About":
      #Add the cover image for the cover page. Used a little trick to center the image
          col1, col2 = st.columns( [0.8, 0.2])

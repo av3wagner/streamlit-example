@@ -49,7 +49,7 @@ if pdf_file is not None:
 # We create our Streamlit App
 def main():
     logo = Image.open('KI3.jpg')
-    profile = Image.open(KI.jpg')
+    profile = Image.open('KI.jpg')
 
     with st.sidebar:
         choose = option_menu("App Gallery", ["About", "Photo Editing", "Project Planning", "Python e-Course", "Contact"],

@@ -20,10 +20,10 @@ pdf_file=os.path.join(path, "", "data", "post1-compressed10G.pdf")
 #/app/streamlit-example/data/post1-compressed10G.pdf
 
  #st.sidebar.image('./data/KI3.jpg')
- st.sidebar.title("Navigation")
+ #st.sidebar.title("Navigation")
  #options = st.sidebar.radio("Go to",['Home','Global Situation', 'Situation by WHO Region', 'Situation in the United States'], key='1')
- st.sidebar.markdown("")
- st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')
+ #st.sidebar.markdown("")
+ #st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')
 
 def show_pdf(file_path):
     with open(file_path,"rb") as f:
@@ -39,6 +39,9 @@ if pdf_file is not None:
     #save_image_path = pdf_file.name
     with open(save_image_path, "wb") as f:
         #st.markdown("Добрый день дорогие одноклассники!")
+        st.sidebar.title("Navigation")
+        st.sidebar.markdown("")
+        st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')
         #f.write(pdf_file.getbuffer())
     #show_pdf(save_image_path)
     show_pdf("post1-compressed10G.pdf")

@@ -48,7 +48,7 @@ if pdf_file is not None:
             st.markdown("")
             #st.image(logo, width=130 )
             st.image(profile, width=400 )
-            st.markdown(""" <style> .font {font-size:14px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
+            st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
             st.markdown('<p class="font">Фото: Мюнхен, 2010</p>', unsafe_allow_html=True)
             st.markdown("")
             st.write("Дорогие одноклассники! Вашему вниманию предлагаются воспоминания выпускников сш. им В.И.Ленина 1968 года. Это первая редакция сборника, так называемы сигнальный вариан. Авторы продолжают работать дальше и расширять сборник. В скором времени он будет предложен вам для прочтения. Желаем вам приятного чтения!")    

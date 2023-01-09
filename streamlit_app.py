@@ -77,9 +77,6 @@ def main():
             "nav-link-selected": {"background-color": "#02ab21"},
         }
         )
-[US geoJSON file](https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/us-states.json)')
-            
-    
    
 #if __name__ == '__main__':
 #    main()

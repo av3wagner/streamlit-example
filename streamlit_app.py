@@ -34,7 +34,8 @@ if pdf_file is not None:
     with open(save_image_path, "wb") as f:
         st.markdown(save_image_path)
         #f.write(pdf_file.getbuffer())
-    show_pdf(save_image_path)
+    #show_pdf(save_image_path)
+    show_pdf("post1-compressed10G.pdf")
 
 
 

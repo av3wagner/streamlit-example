@@ -57,7 +57,7 @@ def main():
     row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((.1, 2, .2, 1, .1))
 
     # Create the sidebar.
-    st.sidebar.image('./images/streamlit-logo.png')
+    st.sidebar.image('.data/KI3.jpg')
     st.sidebar.title("Navigation")
     options = st.sidebar.radio("Go to",['Home','Global Situation', 'Situation by WHO Region', 'Situation in the United States'], key='1')
     st.sidebar.markdown("")
@@ -65,18 +65,10 @@ def main():
     
     # Date for side bar
     date_current = get_pst_time()
-    
-    # Global cases and deaths for side bar
-    global_cases_side_bar = round(get_global_cases())
-    global_deaths_side_bar = round(get_global_deaths())   
-    st.sidebar.info("Date: **{}**".format(date_current))
-    st.sidebar.info("Global Cases: **{}**".format(global_cases_side_bar))
-    st.sidebar.info("Global Deaths: **{}**".format(global_deaths_side_bar))
-
+        
     # Main Page.
     if options == "Home":
         row1_spacer1, row1_1, row1_spacer2 = st.beta_columns((.1, 3.2, .1))
-
         with row1_1:
             st.markdown("![COVID-19 Picture](https://d2jx2rerrg6sh3.cloudfront.net/image-handler/ts/20200420091641/ri/674/picture/2020/4/%40shutterstock_1647268288.jpg)")
             st.markdown("Welcome to my COVID-19 data visualization web app. The purpose of this project is to have a look at the current state of COVID-19 using visualizations from different geographical perspectives. The plots have been created by using data visualization tools such as Plotly and Folium. The project is broken down into three parts.")
@@ -116,85 +108,8 @@ def main():
             st.markdown('* [World geoJSON file](https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/world-countries.json)')
             st.markdown('* [US geoJSON file](https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/us-states.json)')
 
-    # Global Situation Page
-    if options == "Global Situation":
-        # We create the third row.
-        row3_spacer1, row3_1, row3_spacer2 = st.beta_columns((.1, 3.2, .1))  
-        with row3_1:
-            # We get the date 
-            date_current = get_pst_time()
-            st.title('1. Global Situation:')
-            global_cases = round(get_global_cases())
-            global_deaths = round(get_global_deaths())
-            st.markdown("As of **{}**, there have been **{}** positive COVID-19 cases and **{}** deaths globally. Below is a Folium Choropleth that shows the total cases, total deaths, total cases per capita (100,000), and total deaths per capita (100,000). **Please click on the layer control to select the different maps**. In addition to that, you can hover over each country to see more information.".format(date_current,global_cases,global_deaths))
-            folium_plot1 = plot1()
-            folium_static(folium_plot1)
-            
-            # Adding Top 5 Cases plot
-            top5_country_cases = plot9()
-            st.plotly_chart(top5_country_cases)
-
-            # Adding Top 5 Deaths plot
-            top5_country_deaths = plot10()
-            st.plotly_chart(top5_country_deaths)
-
-            # Adding Time Series Bar Plot.
-            tsa_plot1 = plot4()
-            st.plotly_chart(tsa_plot1)
-            tsa_plot2 = plot5()
-            st.plotly_chart(tsa_plot2)
-
-            # Adding time series bubble maps with animation.
-            bubble_plot1 = plot2()
-            st.plotly_chart(bubble_plot1)
-            bubble_plot2 = plot3()
-            st.plotly_chart(bubble_plot2)
     
-    # WHO Region Page
-    if options == "Situation by WHO Region":
-        # We create the third row.
-        row3_spacer1, row3_1, row3_spacer2 = st.beta_columns((.1, 3.2, .1))  
-        with row3_1:
-            # Adding bar plots for WHO regions.
-            st.title('2. Situation by WHO Regions:')
-            st.markdown("The World Health Organization (WHO) divides its regions into 6 separate regions. The division is for the purposes of reporting, analysis, and administration. Below is a picture that shows the 6 different regions.")
-            st.markdown("![WHO Regions](https://www.researchgate.net/profile/Anna-Lena-Lopez/publication/277779794/figure/fig3/AS:339883563470854@1458045964167/World-Health-Organization-regions.png)")
-            who_plot1 = plot4a()
-            st.plotly_chart(who_plot1)
-           
-    # US Situation Page
-    if options == "Situation in the United States":
-        row4_spacer1, row4_1, row4_spacer2 = st.beta_columns((.1, 3.2, .1))  
-        with row4_1:
-            st.title('3. Situation in the United States:')
-            st.markdown("![USA Covid Picture](https://989bull.com/wp-content/uploads/2020/06/expert-warns-us-could-see-up-to-400000-covid-19-deaths-by-spring-2021.jpg)")
-            st.markdown("Here the focus is on the United States and its current state regarding COVID-19, its Vaccine situation, and the different variants of the disease. To better understand the vaccine variables, please read below.")
-            st.markdown("* **people_fully_vaccinated**: total number of people who received all doses prescribed by the vaccination protocol. If a person receives the first dose of a 2-dose vaccine, this metric stays the same. If they receive the second dose, the metric goes up by 1.")
-            st.markdown("* **people_fully_vaccinated_per_hundred**: people_fully_vaccinated per 100 people in the total population of the state. ")
-            st.markdown("* **total_distributed**: cumulative counts of COVID-19 vaccine doses recorded as shipped in CDC's Vaccine Tracking System. ")
-            st.markdown('**Please click on the layer control to select the different maps**. In addition to that, you can hover over each state to see more information.')
-            folium_plot8 = plot8()
-            folium_static(folium_plot8)
-
-            # add the Vertical Bar Plots
-            US_vacc = plot11()
-            st.plotly_chart(US_vacc)
-
-            # Add Variant Table
-            st.subheader("US COVID-19 Cases Caused by Variants")
-            st.markdown("*According to the CDC, the data will no longer be updated. **Last update April 09, 2021**. Current data showing the prevalence of variants in the United States is available in the [COVID-19 Data Tracker.](https://covid.cdc.gov/covid-data-tracker/#variant-proportions)*")
-            st.markdown("* B.1.1.7 = UK Variant")
-            st.markdown("* B.1.351 = South Africa Variant")
-            st.markdown("* P.1 = Brazil Variant")
-
-            st.table(vairant_summary())
-
-            # Add State Comparison of different Variants plot.
-            st.subheader("Comparison COVID-19 Cases (Caused by Variants) by States")
-            US_variant_comp = plot12()
-            st.plotly_chart(US_variant_comp)
    
 if __name__ == '__main__':
     main()
-
 

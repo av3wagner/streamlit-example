@@ -43,7 +43,7 @@ if pdf_file is not None:
         #st.markdown("")
         #st.image('./data/KI3.jpg')
         
-        col1, col2 = st.columns( [0.8, 0.2])
+        col1, col2 = st.columns( [0.2, 0.8])
         with col1:              
              st.markdown(""" <style> .font {
              font-size:35px ; font-family: 'Cooper Black'; color: #FF9633;} 

@@ -19,7 +19,7 @@ pdf_file=os.path.join(path, "", "data", "post1-compressed10G.pdf")
 #st.markdown(pdf_file)
 #/app/streamlit-example/data/post1-compressed10G.pdf
 
- st.sidebar.image('./adta/Ki3.png')
+ st.sidebar.image('./data/KI3.png')
  st.sidebar.title("Navigation")
  options = st.sidebar.radio("Go to",['Home','Global Situation', 'Situation by WHO Region', 'Situation in the United States'], key='1')
  st.sidebar.markdown("")

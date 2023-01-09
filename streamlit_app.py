@@ -19,9 +19,9 @@ pdf_file=os.path.join(path, "", "data", "post1-compressed10G.pdf")
 #st.markdown(pdf_file)
 #/app/streamlit-example/data/post1-compressed10G.pdf
 
- st.sidebar.image('./data/KI3.jpg')
+ #st.sidebar.image('./data/KI3.jpg')
  st.sidebar.title("Navigation")
- options = st.sidebar.radio("Go to",['Home','Global Situation', 'Situation by WHO Region', 'Situation in the United States'], key='1')
+ #options = st.sidebar.radio("Go to",['Home','Global Situation', 'Situation by WHO Region', 'Situation in the United States'], key='1')
  st.sidebar.markdown("")
  st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')
 

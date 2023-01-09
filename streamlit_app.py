@@ -43,12 +43,12 @@ if pdf_file is not None:
         #st.markdown("")
         #st.image('./data/KI3.jpg')
         
-        col1, col2 = st.columns( [0.2, 0.8])
+        col1, col2 = st.columns( [0.1, 0.9])
         with col1:              
-             st.markdown(""" <style> .font {
-             font-size:35px ; font-family: 'Cooper Black'; color: #FF9633;} 
-             </style> """, unsafe_allow_html=True)
-             st.markdown('<p class="font">About the Creator</p>', unsafe_allow_html=True)
+             #st.markdown(""" <style> .font {
+             #font-size:35px ; font-family: 'Cooper Black'; color: #FF9633;} 
+             #</style> """, unsafe_allow_html=True)
+             #st.markdown('<p class="font">About the Creator</p>', unsafe_allow_html=True)
 
         with col2:  
             st.title("Dr. Alexander Wagner, Berlin")

@@ -49,22 +49,14 @@ if pdf_file is not None:
              font-size:20px ; font-family: 'Cooper Black'; color: #FF9633;} 
              </style> """, unsafe_allow_html=True)
              st.markdown('<p class="font">Автор</p>', unsafe_allow_html=True)
-
         with col2:  
             st.title("Dr. Alexander Wagner, Berlin")
             st.markdown("")
             #st.image(logo, width=130 )
             st.image(profile, width=700 )
             st.write("Дорогие одноклассники! Вашему вниманию предлагаются воспоминания выпускников сш. им В.И.Ленина 1968 года. Это первый вариант сборника, так называемы сигнальный вариан. Авторы продолжают работать дальше и расширять сборник. В скором времени он будет предложен вам для прочтения")    
-            # First Row
-        row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((.1, 2, .2, 1, .1))
-        
-        #st.sidebar.title("Navigation")
-        #st.sidebar.markdown("")
-        #st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')
-        #f.write(pdf_file.getbuffer())
-    #show_pdf(save_image_path)
-    show_pdf("post1-compressed10G.pdf")
+            #show_pdf(save_image_path)
+            show_pdf("post1-compressed10G.pdf")
 
 # We create our Streamlit App
 def main():

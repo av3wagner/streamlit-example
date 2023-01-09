@@ -16,6 +16,7 @@ path = os.getcwd()
 pdf_file=os.path.join(path, "", "data", "post1-compressed10G.pdf")
 #path = "./data/"
 st.markdown(pdf_file)
+#/app/streamlit-example/data/post1-compressed10G.pdf
 
 '''
 with st.sidebar:
@@ -37,7 +38,8 @@ def show_pdf(file_path):
     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="800" type="application/pdf"></iframe>'
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
+#pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
+pdf_file = "/app/streamlit-example/data/post1-compressed10G.pdf"
 if pdf_file is not None:
     save_image_path = './assets/'+pdf_file.name
     with open(save_image_path, "wb") as f:

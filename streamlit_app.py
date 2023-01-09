@@ -48,8 +48,8 @@ if pdf_file is not None:
 
 # We create our Streamlit App
 def main():
-    logo = Image.open(r'C:\Users\13525\Desktop\Insights_Bees_logo.png')
-    profile = Image.open(r'C:\Users\13525\Desktop\medium_profile.png')
+    logo = Image.open('./data/KI3.jpg')
+    profile = Image.open('./data/KI.jpg')
 
     with st.sidebar:
         choose = option_menu("App Gallery", ["About", "Photo Editing", "Project Planning", "Python e-Course", "Contact"],

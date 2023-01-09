@@ -24,7 +24,7 @@ pdf_file = "/app/streamlit-example/data/post1-compressed10G.pdf"
 
 logo = Image.open('data/KI3.jpg')
 #profile = Image.open('data/KI.jpg')
-profile = Image.open('AWagner.jpg')
+profile = Image.open('data/AWagner.JPG')
 
 def show_pdf(file_path):
     with open(file_path,"rb") as f:

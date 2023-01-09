@@ -9,7 +9,8 @@ import inspect, os
 #from streamlit_text_rating.st_text_rater import st_text_rater
 
 path = os.getcwd()
-print(path)
+#print(path)
+st.markdown(path)
 path = "./data/"
 print(path)
 

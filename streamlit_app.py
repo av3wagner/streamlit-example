@@ -6,7 +6,7 @@ import pandas as pd
 import base64
 import sys
 import inspect, os
-from streamlit_text_rating.st_text_rater import st_text_rater
+#from streamlit_text_rating.st_text_rater import st_text_rater
 
 path = os.getcwd()
 print(path)

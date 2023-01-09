@@ -1,1 +1,36 @@
+import streamlit as st
+import base64
+import os
+
+st.set_page_config(
+    page_title="PDF Renderer",
+    page_icon="✨",
+    layout="centered",
+    initial_sidebar_state="auto",
+)
+
+@st.cache(persist=True,allow_output_mutation=True,show_spinner=True,suppress_st_warning=True)
+def render_pdf(file):
+    # Opening file from file path
+    with open(os.path.abspath(os.path.join("E:/IPYNB/KSFE2023/ExSample/Personal_Website-Gut5/Docs/", file)), "rb") as f:
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+
+    # Embedding PDF in HTML
+    pdf_display = F'<embed src="data:application/pdf;base64,{base64_pdf}" width="1080" height="1920" type="application/pdf">'
+
+    return pdf_display
+
+
+filenames = []
+for filename in os.listdir("E:/IPYNB/KSFE2023/ExSample/Personal_Website-Gut5/Docs/"):
+    filenames.append(filename)
+
+
+file = st.sidebar.selectbox('Select PDF for viewing 🎯',filenames)
+st.title("✨ PDF Renderer 📄📜")
+st.markdown("-----")
+pdf_display = render_pdf(file)
+st.markdown(pdf_display, unsafe_allow_html=True)
+
+st.markdown("<br><hr><center>Made with ❤️ by <a href='mailto:ralhanprateek@gmail.com?subject=PDF Renderer WebApp!&body=Please specify the issue you are facing with the app.'><strong>Prateek Ralhan</strong></a></center><hr>", unsafe_allow_html=True)
 

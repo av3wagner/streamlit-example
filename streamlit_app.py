@@ -38,7 +38,7 @@ if pdf_file is not None:
     with open(save_image_path, "wb") as f:
         #st.markdown("Добрый день дорогие одноклассники!")
         #st.set_page_config(layout="wide")
-        #st.title("Dr. Alexander Wagner, Berlin")
+        
         #st.markdown("")
         #st.markdown("")
         #st.image('./data/KI3.jpg')
@@ -50,11 +50,13 @@ if pdf_file is not None:
              </style> """, unsafe_allow_html=True)
              st.markdown('<p class="font">About the Creator</p>', unsafe_allow_html=True)
 
-        with col2:              
-            st.image(logo, width=130 )
-            st.write("Sharone Li is a data science practitioner, enthusiast, and blogger. She writes data science articles and tutorials about Python, data visualization, Streamlit, etc. She is also an amateur violinist who loves classical music.\n\nTo read Sharone's data science posts, please visit her Medium blog at: https://medium.com/@insightsbees")    
+        with col2:  
+            st.title("Dr. Alexander Wagner, Berlin")
+            st.markdown("")
+            #st.image(logo, width=130 )
             st.image(profile, width=700 )
-             # First Row
+            st.write("Sharone Li is a data science practitioner, enthusiast, and blogger. She writes data science articles and tutorials about Python, data visualization, Streamlit, etc. She is also an amateur violinist who loves classical music.\n\nTo read Sharone's data science posts, please visit her Medium blog at: https://medium.com/@insightsbees")    
+            # First Row
         row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((.1, 2, .2, 1, .1))
         
         #st.sidebar.title("Navigation")

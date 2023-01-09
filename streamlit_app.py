@@ -23,7 +23,8 @@ pdf_file=os.path.join(path, "", "data", "post1-compressed10G.pdf")
 pdf_file = "/app/streamlit-example/data/post1-compressed10G.pdf"
 
 logo = Image.open('data/KI3.jpg')
-profile = Image.open('data/KI.jpg')
+#profile = Image.open('data/KI.jpg')
+profile = Image.open('AWagner.jpg')
 
 def show_pdf(file_path):
     with open(file_path,"rb") as f:
@@ -36,13 +37,6 @@ if pdf_file is not None:
     save_image_path = "/app/streamlit-example/data/post1-compressed10G.pdf"
     #save_image_path = pdf_file.name
     with open(save_image_path, "wb") as f:
-        #st.markdown("Добрый день дорогие одноклассники!")
-        #st.set_page_config(layout="wide")
-        
-        #st.markdown("")
-        #st.markdown("")
-        #st.image('./data/KI3.jpg')
-        
         col1, col2 = st.columns( [0.1, 0.9])
         with col1:              
              st.markdown(""" <style> .font {

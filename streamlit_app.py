@@ -64,8 +64,8 @@ def main():
         )
 
 
-     logo = Image.open('./data/KI3.jpg')
-     profile = Image.open('./data/KI.jpg')
+     logo = Image.open('/app/streamlit-example//data/KI3.jpg')
+     profile = Image.open('/app/streamlit-example//data/KI.jpg')
      if choose == "About":
      #Add the cover image for the cover page. Used a little trick to center the image
          col1, col2 = st.columns( [0.8, 0.2])

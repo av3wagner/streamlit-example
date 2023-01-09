@@ -54,10 +54,10 @@ if pdf_file is not None:
             #st.write("Дорогие одноклассники! Вашему вниманию предлагаются воспоминания выпускников сш. им В.И.Ленина 1968 года. Это первая редакция сборника, так называемы сигнальный вариан. Авторы продолжают работать дальше и расширять сборник. В скором времени он будет предложен вам для прочтения. Желаем вам приятного чтения!")    
             #show_pdf(save_image_path)
             
-            row1_spacer1, row1_1, row1_spacer2 = st.beta_columns((.1, 3.2, .1))
+            #row1_spacer1, row1_1, row1_spacer2 = st.beta_columns((.1, 3.2, .1))
 
-            with row1_1:
-                st.markdown("![COVID-19 Picture](https://d2jx2rerrg6sh3.cloudfront.net/image-handler/ts/20200420091641/ri/674/picture/2020/4/%40shutterstock_1647268288.jpg)")
+            #with row1_1:
+                #st.markdown("![COVID-19 Picture](https://d2jx2rerrg6sh3.cloudfront.net/image-handler/ts/20200420091641/ri/674/picture/2020/4/%40shutterstock_1647268288.jpg)")
                 st.markdown("Welcome to my COVID-19 data visualization web app. The purpose of this project is to have a look at the current state of COVID-19 using visualizations from different geographical perspectives. The plots have been created by using data visualization tools such as Plotly and Folium. The project is broken down into three parts.")
                 st.markdown("**1. Global COVID-19 Situation**: We will display a folium map that shows the total cases, total deaths, total cases per 100,000, and total deaths per 100,000. In addition to that, we will display various time series plots to understand better how the disease spreads over time across the globe.")
                 st.markdown("**2. COVID-19 Situation by World Health Organization Region (WHO)**: In the following section, we look at the disease from the World Health Organization's regional perspective. We will compare the different regions based on their total cases, total deaths, total cases per 100 million and total deaths per 100 million deaths.")

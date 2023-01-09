@@ -57,7 +57,7 @@ if pdf_file is not None:
             st.markdown("**1.**: Вашему вниманию предлагаются воспоминания выпускников сш. им В.И.Ленина 1968 года. ")
             st.markdown("**2.**: Это первая редакция сборника, так называемы сигнальный вариант. Авторы продолжают работать дальше и расширять сборник.")
             st.markdown("**3.**: В скором времени он будет предложен вам для прочтения. Желаем вам приятного чтения!")
-            \st.markdown("Желаем вам приятного чтения!")
+            #st.markdown("Желаем вам приятного чтения!")
             #st.markdown("If you have any questions regarding this project or require any further information, feel free to [contact me](https://www.navidma.com/contact).")
             #We will write the GitHub link here.
             #st.subheader('GitHub Link:')

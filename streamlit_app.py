@@ -39,6 +39,21 @@ if pdf_file is not None:
         st.markdown("")
         st.markdown("")
         st.image('./data/KI3.jpg')
+        
+        col1, col2 = st.columns( [0.8, 0.2])
+        with col1:               # To display the header text using css style
+             st.markdown(""" <style> .font {
+             font-size:35px ; font-family: 'Cooper Black'; color: #FF9633;} 
+             </style> """, unsafe_allow_html=True)
+             st.markdown('<p class="font">About the Creator</p>', unsafe_allow_html=True)
+
+        with col2:               # To display brand logo
+            st.image(logo, width=130 )
+            st.write("Sharone Li is a data science practitioner, enthusiast, and blogger. She writes data science articles and tutorials about Python, data visualization, Streamlit, etc. She is also an amateur violinist who loves classical music.\n\nTo read Sharone's data science posts, please visit her Medium blog at: https://medium.com/@insightsbees")    
+            st.image(profile, width=700 )
+             # First Row
+        row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.beta_columns((.1, 2, .2, 1, .1))
+        
         #st.sidebar.title("Navigation")
         #st.sidebar.markdown("")
         #st.sidebar.image('https://media.giphy.com/media/dVuyBgq2z5gVBkFtDc/giphy.gif')
@@ -63,7 +78,7 @@ def main():
         }
         )
 
-     ''' 
+     
      #logo = Image.open('KI3.jpg')
      #profile = Image.open('KI.jpg')
      if choose == "About":
@@ -135,9 +150,9 @@ def main():
             st.markdown('**GeoJSON - Data:**')
             st.markdown('* [World geoJSON file](https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/world-countries.json)')
             st.markdown('* [US geoJSON file](https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/us-states.json)')
-            '''
+            
     
    
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
 

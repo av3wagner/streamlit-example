@@ -25,6 +25,7 @@ logo = Image.open('data/KI3.jpg')
 be1 = Image.open('AutoitGuiBericht.jpg')
 be2 = Image.open('AutoitGui2.jpg')
 be3 = Image.open('AutoitGui4.jpg')
+be4 = Image.open('AutoitGui5.jpg')
 
 def show_pdf(file_path):
     col1, col2 = st.columns( [1, 9])
@@ -111,6 +112,11 @@ def Einführung():
         st.header("Start WEB-App auf Cloud-Plattform und Visualisierung auf System-GUI")
         st.markdown("")
         st.image(be3, width=800 )
+        st.markdown("")    
+        
+        st.header("Schematische Darstellung des Anwendungsbetriebs in Web-Plattformen")
+        st.markdown("")
+        st.image(be4, width=800 )
         st.markdown("")    
         
 def laden():    

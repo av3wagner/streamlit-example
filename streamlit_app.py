@@ -10,7 +10,7 @@ import inspect, os
 
 import streamlit.components.v1 as components
 #import plotly.express as px
-from streamlit_timeline import timeline
+#from streamlit_timeline import timeline
 #import plotly.graph_objects as go
 #import seaborn as sns
 #import plotly.figure_factory as ff

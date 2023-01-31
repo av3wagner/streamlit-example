@@ -24,7 +24,7 @@ profile = Image.open('data/AWagner.JPG')
 logo = Image.open('data/KI3.jpg')
 be1 = Image.open('AutoitGuiBericht.jpg')
 be2 = Image.open('AutoitGui2.jpg')
-be3 = Image.open('AutoitGui3.jpg')
+be3 = Image.open('AutoitGui4.jpg')
 
 def show_pdf(file_path):
     col1, col2 = st.columns( [1, 9])

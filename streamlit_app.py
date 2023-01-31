@@ -25,7 +25,7 @@ be1 = Image.open('AutoitGuiBericht.jpg')
 be2 = Image.open('AutoitGui2.jpg')
 be3 = Image.open('AutoitGui3.jpg')
 
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 
 def show_pdf(file_path):
     col1, col2 = st.columns( [1, 9])

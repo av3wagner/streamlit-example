@@ -17,7 +17,7 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
-#st.markdown(path)
+st.markdown(path)
 
 profile = Image.open('data/AWagner.JPG')
 logo = Image.open('data/KI3.jpg')
@@ -41,12 +41,10 @@ def show_pdf(file_path):
         #     + ' from the left. I have implemented only a few to show how it works on Streamlit. ' + 
         #     'You are free to add stuff to this app.')
         st.markdown("")
-        
         with open(file_path,"rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
         pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="1000" height="1000" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
-    
 
 def main():
     selected_box = st.sidebar.selectbox(

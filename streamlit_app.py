@@ -17,15 +17,14 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
-st.markdown(path)
+#st.markdown(path)
+#/app/streamlit-example
 
 profile = Image.open('data/AWagner.JPG')
 logo = Image.open('data/KI3.jpg')
 be1 = Image.open('AutoitGuiBericht.jpg')
 be2 = Image.open('AutoitGui2.jpg')
 be3 = Image.open('AutoitGui3.jpg')
-
-#st.set_page_config(layout="wide")
 
 def show_pdf(file_path):
     col1, col2 = st.columns( [1, 9])
@@ -47,6 +46,7 @@ def show_pdf(file_path):
         st.markdown(pdf_display, unsafe_allow_html=True)
 
 def main():
+    st.set_page_config(layout="wide")
     selected_box = st.sidebar.selectbox(
     'Bitte wählen Sie eine Funktion', ('Über uns', 'Einführung', 'Bericht Visualisierung', 'Hoch- Runterladen der Dateien'))
     

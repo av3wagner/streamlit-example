@@ -21,7 +21,7 @@ path = os.getcwd()
 #st.markdown(path)
 #/app/streamlit-example
 
-profile = Image.open('data/AWagner.JPG')
+profile  = Image.open('data/AWagner.JPG')
 profile2 = Image.open('AWprofil.JPG')
 logo = Image.open('data/KI3.jpg')
 be1 = Image.open('AutoitGuiBericht.jpg')

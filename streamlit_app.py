@@ -50,7 +50,7 @@ def show_pdf(file_path):
 def main():
     st.set_page_config(layout="wide")
     selected_box = st.sidebar.selectbox(
-    'Bitte wählen Sie eine Funktion', ('Über uns', 'Einführung', 'Bericht Visualisierung', 'Hoch- Runterladen der Dateien'))
+    'Bitte wählen Sie eine Funktion', ('Über uns', 'Einführung', 'Bericht Visualisierung', 'Hoch- Runterladen der Dateien', 'Beispiel 18 Modellen'))
     
     if selected_box == 'Über uns':
         welcome() 
@@ -60,6 +60,8 @@ def main():
         Einführung()
     if selected_box == 'Hoch- Runterladen der Dateien':
         laden()
+   if selected_box == 'Beispiel 18 Modellen':
+        BeModellen()               
 
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])
@@ -153,6 +155,12 @@ def laden():
         
         st.header("Hochladen des Word-Dokuments vom lokal-PC auf GitHub")
         st.markdown("")  
+def BeModellen()        
+    st.header("Beispiel: 18 Maschinen Lernen Modellen")
+    HtmlFile = open("A++Nostalgi08.html", 'r', encoding='utf-8')
+    source_code = HtmlFile.read() 
+    components.html(source_code, width=1800, height=2000, scrolling=True)
+
         
 if __name__ == "__main__":
     main()

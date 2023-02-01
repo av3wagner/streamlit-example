@@ -60,7 +60,7 @@ def main():
         Einführung()
     if selected_box == 'Hoch- Runterladen der Dateien':
         laden()
-   if selected_box == 'Beispiel 18 Modellen':
+    if selected_box == 'Beispiel 18 Modellen':
         BeModellen()               
 
 def welcome():

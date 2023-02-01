@@ -66,11 +66,14 @@ def main():
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])
     with col1:              
-        st.markdown("")
-        st.image(logo, width=100 )
-        st.markdown("")
+        #st.markdown("")
+        #st.image(logo, width=100 )
+        #st.markdown("")
     with col2:  
+        st.title("Prof. Dr. Dirk Schieborn, Dipl. Math., Professor für Mathematik, Data Science und Statistik an der ESB Business School der Hochschule Reutlingen; Leiter Steinbeis Transferzentrum Data Analytics und Predictive Modelling")
+        st.markdown("")
         st.title("Dr. Alexander Wagner, Berlin")
+        st.markdown("")
         st.markdown("")
         st.image(profile, width=400 )
         st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)

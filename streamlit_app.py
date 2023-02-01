@@ -22,7 +22,7 @@ path = os.getcwd()
 #/app/streamlit-example
 
 profile  = Image.open('data/AWagner.JPG')
-profile2 = Image.open('AWprofil.JPG')
+profile2 = Image.open('AWprofil.jpg')
 logo = Image.open('data/KI3.jpg')
 be1 = Image.open('AutoitGuiBericht.jpg')
 be2 = Image.open('AutoitGui2.jpg')

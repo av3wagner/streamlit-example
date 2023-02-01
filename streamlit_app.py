@@ -22,6 +22,7 @@ path = os.getcwd()
 #/app/streamlit-example
 
 profile = Image.open('data/AWagner.JPG')
+profile2 = Image.open('AWprofil.JPG')
 logo = Image.open('data/KI3.jpg')
 be1 = Image.open('AutoitGuiBericht.jpg')
 be2 = Image.open('AutoitGui2.jpg')
@@ -80,6 +81,8 @@ def welcome():
         st.image(profile, width=400 )
         st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
         st.markdown('<p class="font">Фото: MSD SHARP & DOHME GMBH. Мюнхен, 2010</p>', unsafe_allow_html=True)
+        st.markdown("")
+        st.image(profile2, width=800 )
         st.markdown("")
         st.markdown('* [GitHub Repo](https://github.com/av3wagner/streamlit-example)')
     with col3:              

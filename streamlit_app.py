@@ -155,7 +155,7 @@ def laden():
         
         st.header("Hochladen des Word-Dokuments vom lokal-PC auf GitHub")
         st.markdown("")  
-def BeModellen()        
+def BeModellen():        
     st.header("Beispiel: 18 Maschinen Lernen Modellen")
     HtmlFile = open("A++Nostalgi08.html", 'r', encoding='utf-8')
     source_code = HtmlFile.read() 

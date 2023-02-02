@@ -69,7 +69,7 @@ def main():
 
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])
-    intro_markdown = read_markdown_file("DrWagner.md")
+    intro_markdown = read_markdown_file('DrWagner.md')
     
     with col1:              
         st.markdown("")

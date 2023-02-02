@@ -95,8 +95,9 @@ def welcome():
         st.markdown("")
         
         st.image(AWbrigade, width=400 )
-        st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
-        st.markdown('<p class="font">Фото: Alexander Wagner 4. von links. Almaty, 1973</p>', unsafe_allow_html=True)
+        #st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
+        st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #000000;} </style> """, unsafe_allow_html=True)
+        st.markdown('<p class="font">Фото: Alexander Wagner 4. von links. Almaty, April 1973</p>', unsafe_allow_html=True)
         st.markdown("")
                 
         intro_markdown = read_markdown_file("DrWagner.md")

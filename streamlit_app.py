@@ -94,7 +94,7 @@ def welcome():
         st.markdown('<p class="font">Фото: MSD SHARP & DOHME GMBH. Мюнхен, 2010</p>', unsafe_allow_html=True)
         st.markdown("")
         
-        st.image(Awbrigade, width=400 )
+        st.image(AWbrigade, width=400 )
         st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
         st.markdown('<p class="font">Фото: Alexander Wagner 4. von links. Almaty, 1973</p>', unsafe_allow_html=True)
         st.markdown("")

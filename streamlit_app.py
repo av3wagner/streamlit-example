@@ -28,7 +28,6 @@ be1 = Image.open('AutoitGuiBericht.jpg')
 be2 = Image.open('AutoitGui2.jpg')
 be3 = Image.open('AutoitGui4.jpg')
 be4 = Image.open('AutoitGui5.jpg')
-intro_markdown = read_markdown_file("DrWagner.md")
 
 def show_pdf(file_path):
     col1, col2 = st.columns( [1, 9])
@@ -70,6 +69,8 @@ def main():
 
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])
+    intro_markdown = read_markdown_file("DrWagner.md")
+    
     with col1:              
         st.markdown("")
         #st.image(logo, width=100 )
@@ -91,7 +92,6 @@ def welcome():
         #st.markdown("")
         #st.markdown('* [GitHub Repo](https://github.com/av3wagner/streamlit-example)')
         
-        #intro_markdown = read_markdown_file("DrWagner.md")
         st.markdown(intro_markdown, unsafe_allow_html=True)
 
 

@@ -92,8 +92,7 @@ def welcome():
         #st.image(profile2, width=800 )
         #st.markdown("")
         #st.markdown('* [GitHub Repo](https://github.com/av3wagner/streamlit-example)')
-        
-        #st.markdown(intro_markdown, unsafe_allow_html=True)
+                
         read_markdown_file('DrWagner.md')
 
     with col3:              

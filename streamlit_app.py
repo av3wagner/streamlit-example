@@ -95,7 +95,7 @@ def welcome():
         st.markdown("")
         
         st.image(AWbrigade, width=400 )
-        new_title = '<p style="font-family:sans-serif; color:Black; font-size: 14px;">Baustelle: Alexander Wagner 4. von links. Almaty, April 1973</p>'
+        new_title = '<p style="font-family:sans-serif; color:Black; font-weight:bold; font-size: 12px;">Baustelle: Alexander Wagner 4. von links. Almaty, April 1973</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown("")
                 

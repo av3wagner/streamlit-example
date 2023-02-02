@@ -48,9 +48,14 @@ def show_pdf(file_path):
         pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="1000" height="1000" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
 
-def read_markdown_file(markdown_file):
+def read_markdown_file0(markdown_file):
     intro_markdown = Path(markdown_file).read_text()
     st.markdown(intro_markdown, unsafe_allow_html=True)
+
+def read_markdown_file(markdown_file):
+    with open(markdown_file, 'r') as fp:
+        w = fp.read()
+    return w    
 
 def main():
     st.set_page_config(layout="wide")
@@ -92,9 +97,12 @@ def welcome():
         #st.image(profile2, width=800 )
         #st.markdown("")
         #st.markdown('* [GitHub Repo](https://github.com/av3wagner/streamlit-example)')
-                
-        read_markdown_file('DrWagner.md')
+        #read_markdown_file('DrWagner.md')
+        
+        intro_markdown = read_markdown_file("DrWagner.md")
+        st.markdown(intro_markdown, unsafe_allow_html=True)
 
+        
     with col3:              
         st.markdown(""" <style> .font {
         font-size:10px ; font-family: 'Cooper Black'; color: #FF9633;} 

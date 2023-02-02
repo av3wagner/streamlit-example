@@ -90,8 +90,10 @@ def welcome():
         st.markdown("")
         st.markdown("")
         st.image(profile, width=400 )
-        st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
-        st.markdown('<p class="font">MSD SHARP & DOHME GMBH: Alexander Wagner. Мюнхен, 2010</p>', unsafe_allow_html=True)
+        #st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
+        #st.markdown('<p class="font">MSD SHARP & DOHME GMBH: Alexander Wagner. Мюнхен, 2010</p>', unsafe_allow_html=True)
+        title1 = '<p style="font-family:sans-serif; color:Black; font-weight:bold; font-size: 12px;">MSD SHARP & DOHME GMBH: Alexander Wagner. Мюнхен</p>'
+        st.markdown(title1, unsafe_allow_html=True)
         st.markdown("")
         
         st.image(AWbrigade, width=400 )

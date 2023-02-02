@@ -48,6 +48,9 @@ def show_pdf(file_path):
         pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="1000" height="1000" type="application/pdf"></iframe>'
         st.markdown(pdf_display, unsafe_allow_html=True)
 
+def read_markdown_file(markdown_file):
+    return Path(markdown_file).read_text()
+
 def main():
     st.set_page_config(layout="wide")
     selected_box = st.sidebar.selectbox(
@@ -82,9 +85,15 @@ def welcome():
         st.markdown(""" <style> .font {font-size:16px ; font-family: 'Cooper Black'; color: #FF9633;} </style> """, unsafe_allow_html=True)
         st.markdown('<p class="font">Фото: MSD SHARP & DOHME GMBH. Мюнхен, 2010</p>', unsafe_allow_html=True)
         st.markdown("")
-        st.image(profile2, width=800 )
-        st.markdown("")
-        st.markdown('* [GitHub Repo](https://github.com/av3wagner/streamlit-example)')
+        
+        #st.image(profile2, width=800 )
+        #st.markdown("")
+        #st.markdown('* [GitHub Repo](https://github.com/av3wagner/streamlit-example)')
+        
+        intro_markdown = read_markdown_file("DrWagner.md")
+        st.markdown(intro_markdown, unsafe_allow_html=True)
+
+
     with col3:              
         st.markdown(""" <style> .font {
         font-size:10px ; font-family: 'Cooper Black'; color: #FF9633;} 

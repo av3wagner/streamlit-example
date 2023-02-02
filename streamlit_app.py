@@ -49,7 +49,8 @@ def show_pdf(file_path):
         st.markdown(pdf_display, unsafe_allow_html=True)
 
 def read_markdown_file(markdown_file):
-    return Path(markdown_file).read_text()
+    intro_markdown = Path(markdown_file).read_text()
+    st.markdown(intro_markdown, unsafe_allow_html=True)
 
 def main():
     st.set_page_config(layout="wide")
@@ -92,8 +93,8 @@ def welcome():
         #st.markdown("")
         #st.markdown('* [GitHub Repo](https://github.com/av3wagner/streamlit-example)')
         
-        st.markdown(intro_markdown, unsafe_allow_html=True)
-
+        #st.markdown(intro_markdown, unsafe_allow_html=True)
+        read_markdown_file('DrWagner.md')
 
     with col3:              
         st.markdown(""" <style> .font {

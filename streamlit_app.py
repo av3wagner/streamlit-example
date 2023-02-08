@@ -66,7 +66,7 @@ def main():
     if selected_box == 'Über uns':
         welcome() 
     if selected_box == 'Bericht Visualisierung':
-        show_pdf("KSFE2023.pdf")
+        show_pdf("KSFE2023F.pdf")
     if selected_box == 'Einführung':
         Einführung()
     if selected_box == 'Hoch- Runterladen der Dateien':

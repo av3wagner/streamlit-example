@@ -1,5 +1,4 @@
 #Hurra, es läuft! 09.01.2023
-#Hurra, es läuft! 09.01.2023
 import streamlit as st
 #from streamlit_option_menu import option_menu
 from  PIL import Image

@@ -37,7 +37,7 @@ def show_pdf(file_path):
         st.markdown(pdf_display, unsafe_allow_html=True)
 
 def save_uploadedfile(uploadedfile):
-    with open(os.path.join("Output", uploadedfile.name), "wb") as f:    
+    with open(os.path.join("data", uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
         st.write(OutPDF)

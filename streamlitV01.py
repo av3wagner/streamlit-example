@@ -55,7 +55,7 @@ def read_markdown_file(markdown_file):
         w = fp.read()
     return w    
 
-def main():
+def main0():
     st.set_page_config(layout="wide")
     st.sidebar.title('Navigation')
     options = st.sidebar.radio('Bitte wählen Sie eine Seite:', 
@@ -73,6 +73,25 @@ def main():
         DataExport()  
     elif options == 'Beispiel 18 Modellen':
         BeModellen()  
+
+def main():
+    #st.set_page_config(layout="wide")
+    st.sidebar.title('Navigation')
+    options = st.sidebar.radio('Bitte wählen Sie eine Seite:', 
+        ['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Beispiel 18 Modellen', 'Über uns'])
+
+    if options == 'Über uns':
+        welcome() 
+    elif options == 'Einführung':
+        Einführung()
+    elif options == 'Bericht Visualisierung':
+        select_file()
+    #elif options == 'Hochladen von Dateien':
+        #DataImport()
+    #elif options == 'Herunterladen von Dateien':
+        #DataExport()  
+    elif options == 'Beispiel 18 Modellen':
+        BeModellen()          
         
     
 # File Export

@@ -38,11 +38,11 @@ def show_pdf(file_path):
 def save_uploadedfile(uploadedfile):
     with open(os.path.join("Output", uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
-        OutPDF=(os.path.join(path, "", "Output", uploadedfile.name))
+        OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
     return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
         
 def save_downloadedfile(uploadedfile):
-    with open(os.path.join("Output", uploadedfile.name), "wb") as f:    
+    with open(os.path.join("data", uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(path, "", "Output", uploadedfile.name))
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))

@@ -39,16 +39,16 @@ def show_pdf(file_path):
         st.markdown(pdf_display, unsafe_allow_html=True)
 
 def save_uploadedfile(uploadedfile):
-    with open(os.path.join("data", uploadedfile.name), "wb") as f:    
+    with open(os.localpath.join("data", uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
         st.write(OutPDF)
     return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
         
 def save_downloadedfile(uploadedfile):
-    with open(os.localpath.join("data", uploadedfile.name), "wb") as f:    
+    with open(os.path.join("data", uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
-        OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
+        OutPDF=(os.localpath.join(path, "", "data", uploadedfile.name))
         st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))
 

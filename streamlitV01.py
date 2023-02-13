@@ -88,9 +88,13 @@ def DataExport():
             save_uploadedfile(uploaded_file)
             
 def select_file():
-    parent_path = pathlib.Path(__file__).parent.parent.resolve()
+    #parent_path = pathlib.Path(__file__).parent.parent.resolve()
+    parent_path = r'C:\ALMATY2023\IPYNB2023'
+    FileList = []
+    extensions = ['pdf', 'docx']
+    
     st.write(parent_path)
-    data_path = os.path.join(parent_path, "data")
+    data_path = os.path.join(parent_path, "Output")
     st.write("data_path: ")
     st.write(data_path)
     st.write(listdir(data_path))

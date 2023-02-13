@@ -88,30 +88,29 @@ def DataExport():
             save_uploadedfile(uploaded_file)
             
 def select_file():
-    #parent_path = pathlib.Path(__file__).parent.parent.resolve()
     parent_path = '/app/streamlit-example'
-    #r'C:/ALMATY2023/IPYNB2023'
     fileList = []
     extensions = ['pdf', 'docx']
-    st.write(parent_path)
-    st.write(fileList)
+    #st.write(parent_path)
+    #st.write(fileList)
     #data_path = os.path.join(parent_path, "Output")
     #st.write("data_path: ")
     #st.write(data_path)
     fileList = listdir(parent_path)
-    for file in fileList:
-        if file.split('.')[-1] in extensions:
-            st.write(file) 
-                    
+    #for file in fileList:
+    #    if file.split('.')[-1] in extensions:
+    #        st.write(file) 
     #onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
+    
     onlyfiles = [f for f in listdir(parent_path) if isfile(join(parent_path, f))]    
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
-    st.write("option: ")
-    st.write(option)
+    #st.write("option: ")
+    #st.write(option)
     file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
     st.write("file_location: ")
     st.write(file_location)
-    show_pdf(file_location)
+    if file_location.find('.pdf') > 0:  
+        show_pdf(file_location)
 
 def PdfExport():  
     st.sidebar.title('PDF Explorer')

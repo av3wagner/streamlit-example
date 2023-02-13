@@ -86,7 +86,7 @@ def DataExport():
     #pdf_display = render_pdf(file)
 
     st.sidebar.title("Herunterladen von Dateien 🎯")
-    uploaded_files = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)
+    uploaded_files = st.sidebar.file_uploader("/app/streamlit-example", type=['.docx', '.pdf'], accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
         if uploaded_file.name.find('.docx') > 0:  

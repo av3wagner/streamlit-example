@@ -63,7 +63,8 @@ def main():
     elif options == 'Einführung':
         Einführung()
     elif options == 'Bericht Visualisierung':
-        PdfExport()
+        #PdfExport()
+        select_file()
     elif options == 'Hoch- Runterladen der Dateien':
         #laden()
         DataExport()  
@@ -82,6 +83,18 @@ def DataExport():
             st.sidebar.markdown(get_binary_file_downloader_html(uploaded_file.name, ' Docx-File'), unsafe_allow_html=True)
         elif uploaded_file.name.find('.pdf') > 0:  
             save_uploadedfile(uploaded_file)
+            
+def select_file:
+    parent_path = pathlib.Path(__file__).parent.parent.resolve()
+    st.write(parent_path)
+    data_path = os.path.join(parent_path, "Output")
+    st.write(data_path)
+    onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
+
+    option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
+    st.write(option)
+    file_location=os.path.join(data_path, option) # use `file_location` as a parameter to the main script
+    st.write(file_location)
 
 def PdfExport():  
     st.sidebar.title('PDF Explorer')

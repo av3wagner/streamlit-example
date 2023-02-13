@@ -9,6 +9,8 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
+localpath="C:/Temp"
+
 st.write(path)
 #/app/streamlit-example
 
@@ -44,9 +46,9 @@ def save_uploadedfile(uploadedfile):
     return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
         
 def save_downloadedfile(uploadedfile):
-    with open(os.path.join("data", uploadedfile.name), "wb") as f:    
+    with open(os.localpath.join("data", uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
-        OutPDF=(os.path.join(path, "", "Output", uploadedfile.name))
+        OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
         st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))
 

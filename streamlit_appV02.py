@@ -5,10 +5,10 @@ import pandas as pd
 import base64
 import sys
 import inspect, os
-import streamlit.components.v1 as components
 import pathlib
 from os import listdir
 from os.path import isfile, join
+import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
@@ -25,6 +25,7 @@ be1 = Image.open('AutoitGuiBericht.jpg')
 be2 = Image.open('AutoitGui2.jpg')
 be3 = Image.open('AutoitGui4.jpg')
 be4 = Image.open('AutoitGui5.jpg')
+st.set_page_config(layout="wide")
 
 def show_pdf(file_path):
     col1, col2 = st.columns( [1, 9])
@@ -69,7 +70,7 @@ def read_markdown_file(markdown_file):
     return w    
 
 def main():
-    st.set_page_config(layout="wide")
+    #st.set_page_config(layout="wide")
     st.sidebar.title('Navigation')
     options = st.sidebar.radio('Bitte wählen Sie eine Seite:', 
         ['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Beispiel 18 Modellen', 'Über uns'])

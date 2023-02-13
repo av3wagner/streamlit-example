@@ -106,11 +106,11 @@ def select_file():
     #onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
     onlyfiles = [f for f in listdir(parent_path) if isfile(join(parent_path, f))]    
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
-    #st.write("option: ")
-    #st.write(option)
-    #file_location=os.path.join(data_path, option) # use `file_location` as a parameter to the main script
-    #st.write("file_location: ")
-    #st.write(file_location)
+    st.write("option: ")
+    st.write(option)
+    file_location=os.path.join(data_path, option) # use `file_location` as a parameter to the main script
+    st.write("file_location: ")
+    st.write(file_location)
 
 def PdfExport():  
     st.sidebar.title('PDF Explorer')

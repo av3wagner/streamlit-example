@@ -90,16 +90,18 @@ def DataExport():
 def select_file():
     #parent_path = pathlib.Path(__file__).parent.parent.resolve()
     parent_path = r'C:/ALMATY2023/IPYNB2023'
-    FileList = []
+    fileList = []
     extensions = ['pdf', 'docx']
     st.write(parent_path)
+    st.write(fileList)
     #data_path = os.path.join(parent_path, "Output")
     #st.write("data_path: ")
     #st.write(data_path)
-    FileList = listdir(parent_path)
-    for file in FileList:
-        if file.split('.')[-1] in extensions:
-           print(file) 
+    fileList = listdir(parent_path)
+    
+    #for file in FileList:
+    #    if file.split('.')[-1] in extensions:
+    #       print(file) 
     #onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
     #option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
     #st.write("option: ")

@@ -93,6 +93,7 @@ def select_file():
     data_path = os.path.join(parent_path, "data")
     st.write("data_path: ")
     st.write(data_path)
+    ld = listdir(data_path)
     onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
 
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)

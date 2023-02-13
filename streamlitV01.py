@@ -84,7 +84,7 @@ def DataExport():
         elif uploaded_file.name.find('.pdf') > 0:  
             save_uploadedfile(uploaded_file)
             
-def select_file:
+def select_file():
     parent_path = pathlib.Path(__file__).parent.parent.resolve()
     st.write(parent_path)
     data_path = os.path.join(parent_path, "Output")

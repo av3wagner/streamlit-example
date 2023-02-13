@@ -99,11 +99,13 @@ def select_file():
     #st.write("data_path: ")
     #st.write(data_path)
     fileList = listdir(parent_path)
-    for file in FileList:
+    for file in fileList:
         if file.split('.')[-1] in extensions:
-           st.write((file) 
+            st.write((file) 
+                    
     #onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
-    #option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
+    onlyfiles = [f for f in listdir(parent_path) if isfile(join(parent_path, f))]                
+    option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
     #st.write("option: ")
     #st.write(option)
     #file_location=os.path.join(data_path, option) # use `file_location` as a parameter to the main script

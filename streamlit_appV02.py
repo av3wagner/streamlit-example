@@ -144,7 +144,7 @@ def welcome():
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown("")
                 
-        intro_markdown = read_markdown_file("app/streamlit-example/DrWagner3.md")
+        intro_markdown = read_markdown_file("/app/streamlit-example/DrWagner3.md")
         st.markdown(intro_markdown, unsafe_allow_html=True)
         
     with col3:              

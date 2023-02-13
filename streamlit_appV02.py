@@ -10,6 +10,7 @@ import streamlit.components.v1 as components
 options = "Home"
 path = os.getcwd()
 st.write(path)
+#/app/streamlit-example
 
 profile  = Image.open('data/AWagner.JPG')
 profile2 = Image.open('AWprofil.jpg')
@@ -39,13 +40,16 @@ def save_uploadedfile(uploadedfile):
     with open(os.path.join("Output", uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
+        st.write(OutPDF)
     return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
         
 def save_downloadedfile(uploadedfile):
     with open(os.path.join("data", uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(path, "", "Output", uploadedfile.name))
+        st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))
+
 
 def get_binary_file_downloader_html(bin_file, file_label='File'):    
     with open(bin_file, 'rb') as f:

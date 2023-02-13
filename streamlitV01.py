@@ -92,14 +92,11 @@ def select_file():
     fileList = []
     extensions = ['pdf', 'docx']
     fileList = listdir(parent_path)
-    for file in fileList:
-        if file.split('.')[-1] in extensions
-            #onlyfiles = [f for f in listdir(parent_path) if isfile(join(parent_path, f))]    
-            onlyfiles = [f for f in fileList if isfile(join(parent_path, f))]    
-            option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
-            file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
-            if file_location.find('.pdf') > 0:  
-                show_pdf(file_location)
+    onlyfiles = [f for f in fileList if (isfile(join(parent_path, f)) and filename.endswith(extensions))]    
+    option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
+    file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
+    if file_location.find('.pdf') > 0:  
+        show_pdf(file_location)
 
 def PdfExport():  
     st.sidebar.title('PDF Explorer')

@@ -77,9 +77,9 @@ def main():
         Einführung()
     elif options == 'Bericht Visualisierung':
         PdfExport()
-    elif options == 'Hochladen von Dateien':
+    #elif options == 'Hochladen von Dateien':
         #DataImport()
-    elif options == 'Herunterladen von Dateien':
+    #elif options == 'Herunterladen von Dateien':
         #DataExport()  
     elif options == 'Beispiel 18 Modellen':
         BeModellen()  

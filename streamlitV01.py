@@ -89,7 +89,8 @@ def DataExport():
             
 def select_file():
     #parent_path = pathlib.Path(__file__).parent.parent.resolve()
-    parent_path = r'C:/ALMATY2023/IPYNB2023'
+    parent_path = '/app/streamlit-example'
+    #r'C:/ALMATY2023/IPYNB2023'
     fileList = []
     extensions = ['pdf', 'docx']
     st.write(parent_path)

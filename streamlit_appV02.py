@@ -78,9 +78,9 @@ def main():
     elif options == 'Bericht Visualisierung':
         PdfExport()
     elif options == 'Hochladen von Dateien':
-        DataImport()
+        #DataImport()
     elif options == 'Herunterladen von Dateien':
-        DataExport()  
+        #DataExport()  
     elif options == 'Beispiel 18 Modellen':
         BeModellen()  
         
@@ -113,7 +113,7 @@ def DataImport():
 
 def PdfExport():  
     st.sidebar.title('PDF Explorer')
-    uploaded_files = st.sidebar.file_uploader(" ", type=['.rtf', '.pdf'], accept_multiple_files=True)
+    uploaded_files = st.sidebar.file_uploader("app/streamlit-example", type=['.rtf', '.pdf'], accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
         if uploaded_file.name.find('.rtf') > 0:  

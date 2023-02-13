@@ -30,7 +30,8 @@ def show_pdf(file_path):
         st.markdown("")
    
     with col2:  
-        st.title('Visualisierung des Berichts in PDF-Form')
+        #st.title('Visualisierung des Berichts in PDF-Form')
+        st.title('✨ Visualisierung des Berichts in PDF-Form 📄📜')
         st.markdown("")
         with open(file_path,"rb") as f:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
@@ -86,41 +87,33 @@ def main():
         Einführung()
     elif options == 'Bericht Visualisierung':
         select_file()
-    #elif options == 'Hochladen von Dateien':
-        #DataImport()
-    #elif options == 'Herunterladen von Dateien':
-        #DataExport()  
+    elif options == 'Hochladen von Dateien':
+        DataImport()
+    elif options == 'Herunterladen von Dateien':
+        DataExport()  
     elif options == 'Beispiel 18 Modellen':
         BeModellen()          
-        
     
 # File Export
 def DataExport():  
-    st.sidebar.title('Data Explorer für Export')
+    st.sidebar.title("Herunterladen von Dateien 🎯")
     uploaded_files = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
         if uploaded_file.name.find('.docx') > 0:  
-            get_binary_file_downloader_html(uploaded_file.name, ' Docx-File')
-            st.sidebar.markdown(get_binary_file_downloader_html(uploaded_file.name, ' Docx-File'), unsafe_allow_html=True)
+            save_downloadedfile(uploaded_file)
+        elif uploaded_file.name.find('.pdf') > 0:  
+            save_downloadedfile(uploaded_file)
+            
+def DataImport():  
+    st.sidebar.title("Hochladen von Dateien")
+    uploaded_files = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)
+    for uploaded_file in uploaded_files:
+        file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
+        if uploaded_file.name.find('.docx') > 0:  
+            save_uploadedfile(uploaded_file)
         elif uploaded_file.name.find('.pdf') > 0:  
             save_uploadedfile(uploaded_file)
-            
-def select_file():
-    parent_path = '/app/streamlit-example'
-    fileList = []
-    extensions = ['pdf', 'docx']
-    fileList = listdir(parent_path)
-    
-    #path = "/dataPath/"
-    #onlyTxtFiles = [f for f in listdir(path) if isfile(join(path, f)) and  f.endswith(".txt")]
-    #print onlyTxtFiles
-        
-    onlyfiles = [f for f in fileList if isfile(join(parent_path, f)) and  f.endswith(".pdf")]    
-    option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
-    file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
-    if file_location.find('.pdf') > 0:  
-        show_pdf(file_location)
 
 def PdfExport():  
     st.sidebar.title('PDF Explorer')
@@ -129,11 +122,20 @@ def PdfExport():
         file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
         if uploaded_file.name.find('.rtf') > 0:  
             st.sidebar.write('RTF File')
-            #get_binary_file_downloader_html(uploaded_file.name, ' Docx-File')
-            #st.sidebar.markdown(get_binary_file_downloader_html(uploaded_file.name, ' Docx-File'), unsafe_allow_html=True)
         elif uploaded_file.name.find('.pdf') > 0:  
             show_pdf(uploaded_file.name)
             
+            
+def select_file():
+    parent_path = '/app/streamlit-example'
+    fileList = []
+    extensions = ['pdf', 'docx']
+    fileList = listdir(parent_path)
+    onlyfiles = [f for f in fileList if isfile(join(parent_path, f)) and  f.endswith(".pdf")]    
+    option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
+    file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
+    if file_location.find('.pdf') > 0:  
+        show_pdf(file_location)
             
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])

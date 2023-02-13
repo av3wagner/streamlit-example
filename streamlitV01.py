@@ -108,9 +108,10 @@ def select_file():
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
     st.write("option: ")
     st.write(option)
-    file_location=os.path.join(data_path, option) # use `file_location` as a parameter to the main script
+    file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
     st.write("file_location: ")
     st.write(file_location)
+    show_pdf(file_location)
 
 def PdfExport():  
     st.sidebar.title('PDF Explorer')

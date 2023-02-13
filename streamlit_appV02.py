@@ -76,7 +76,8 @@ def main():
     elif options == 'Einführung':
         Einführung()
     elif options == 'Bericht Visualisierung':
-        PdfExport()
+        select_file()
+        #PdfExport()
     #elif options == 'Hochladen von Dateien':
         #DataImport()
     #elif options == 'Herunterladen von Dateien':
@@ -121,6 +122,22 @@ def PdfExport():
         elif uploaded_file.name.find('.pdf') > 0:  
             show_pdf(uploaded_file.name)
             
+def select_file():
+    parent_path = '/app/streamlit-example'
+    fileList = []
+    extensions = ['pdf', 'docx']
+    fileList = listdir(parent_path)
+    
+    #path = "/dataPath/"
+    #onlyTxtFiles = [f for f in listdir(path) if isfile(join(path, f)) and  f.endswith(".txt")]
+    #print onlyTxtFiles
+        
+    onlyfiles = [f for f in fileList if isfile(join(parent_path, f)) and  f.endswith(".pdf")]    
+    option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
+    file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
+    if file_location.find('.pdf') > 0:  
+        show_pdf(file_location)
+        
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])
       

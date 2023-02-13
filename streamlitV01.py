@@ -101,7 +101,7 @@ def select_file():
     fileList = listdir(parent_path)
     for file in fileList:
         if file.split('.')[-1] in extensions:
-            st.write((file) 
+            st.write(file) 
                     
     #onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
     #onlyfiles = [f for f in listdir(parent_path) if isfile(join(parent_path, f))]    

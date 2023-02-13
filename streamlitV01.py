@@ -90,7 +90,7 @@ def DataExport():
 def select_file():
     parent_path = pathlib.Path(__file__).parent.parent.resolve()
     st.write(parent_path)
-    data_path = os.path.join(parent_path, "Output")
+    data_path = os.path.join(parent_path, "data")
     st.write(data_path)
     onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
 

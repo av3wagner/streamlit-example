@@ -215,7 +215,7 @@ def file_selector(folder_path=path, type=['.docx', '.pdf']):
     selected_filename = st.sitebar.selectbox('Select a file', filenames)
     return os.path.join(folder_path, selected_filename)
 
-save_downloadedfile_local(os.path.join(folder_path, selected_filename))
+#save_downloadedfile_local(os.path.join(folder_path, selected_filename))
             
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])

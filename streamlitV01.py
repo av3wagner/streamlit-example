@@ -149,7 +149,7 @@ def select_file():
     fileList = []
     extensions = ['pdf', 'docx']
     fileList = listdir(parent_path)
-    onlyfiles = [f for f in fileList if isfile(join(parent_path, f)) and  f.endswith(".pdf")]    
+    onlyfiles = [f for f in fileList if isfile(join(parent_path, f)) and  (f.endswith(".pdf") or f.endswith(".docx"))]    
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
     file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
     if file_location.find('.pdf') > 0:  

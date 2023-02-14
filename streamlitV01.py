@@ -42,6 +42,7 @@ def show_pdf(file_path):
 def save_uploadedfile(uploadedfile):
     with open(os.path.join("data", uploadedfile.name), "wb") as f:    
         outf=os.path.join("data", uploadedfile.name)
+        st.write(outf)
         f.write(uploadedfile.getbuffer())
     #return st.success("Saved File:{} to Output".format(uploadedfile.name))
     return st.success("Saved File:{} to Output".format(outf))

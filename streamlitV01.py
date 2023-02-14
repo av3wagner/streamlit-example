@@ -167,7 +167,7 @@ def select_file_down():
     file_location=os.path.join(parent_path, option) 
     st.write("Ausgewählte Datei: {}".format(file_location))
     #return st.success("Saved File: {}".format(outf))
-    #save_downloadedfile(file_location)
+    save_downloadedfile(file_location)
     
     #if file_location.find('.pdf') > 0:  
     #    show_pdf(file_location)        

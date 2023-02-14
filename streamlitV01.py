@@ -51,10 +51,8 @@ def save_uploadedfile(uploadedfile):
 
 
 def save_selectfile(uploadedfile):
-    #with open(os.path.join("Output", uploadedfile.name), "wb") as f:    
-    with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
+    with open(os.path.join(localp, uploadedfile.name), "wb") as f:     
         f.write(uploadedfile.getbuffer())
-        #OutPDF=(os.path.join(path, "", "Output", uploadedfile.name))
         OutPDF=(os.path.join(localp, uploadedfile.name))
     return st.sidebar.success("Gespeichert als: {}".format(OutPDF))
 
@@ -70,13 +68,16 @@ def saveas():
                     save_selectfile(uploaded_file)      
 
         
-def save_uploadedfile0(uploadedfile):
-    with open(os.path.join(path, "data", uploadedfile.name), "wb") as f:    
-        outf=os.path.join(path, "data", uploadedfile.name)
-        st.write(outf)
-        f.write(uploadedfile.getbuffer())
-    #return st.success("Saved File:{} to Output".format(uploadedfile.name))
-    return st.success("Saved File: {}".format(outf))
+def saveas():    
+    uploadedfiles = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)    
+    for file in uploadedfiles:
+        if uploadedfiles is not None:
+            for uploaded_file in uploadedfiles:
+                file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
+                if uploaded_file.name.find('.docx') > 0:  
+                    save_selectfile(uploaded_file)
+                elif uploaded_file.name.find('.pdf') > 0:  
+                    save_selectfile(uploaded_file) 
  
 def save_downloadedfile(uploadedfile):
     with open(os.path.join(localp, uploadedfile.name), "wb") as f:    

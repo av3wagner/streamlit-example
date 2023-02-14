@@ -300,19 +300,13 @@ def laden():
     
     col1,col2 = st.columns((4,1))
     with col1:  
-        #st.header("Herunterladen von Dateien 🎯")
-        #st.markdown("")          
-        filename = file_selector(folder_path=path)
-        #st.write("path: ", path)
+        filename = file_selector(folder_path=path, type=['.docx', 'html'])
+        #file_selector(folder_path=path, type=['.docx', '.pdf']):
         st.write('You selected `%s`' % filename)
-        #st.write(filename)                        
-             
         data = open(filename, "rb").read()
         encoded = base64.b64encode(data)
         decoded = base64.b64decode(encoded)
         st.download_button('Herunterladen hier', decoded, filename) 
-        #st.header("Hochladen des Word-Dokuments vom lokal-PC auf GitHub")
-        #st.markdown("")  
         
 def BeModellen():        
     st.header("Beispiel: 18 Maschinen Lernen Modellen")

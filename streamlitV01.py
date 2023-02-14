@@ -280,9 +280,7 @@ def laden():
     st.title('Heunterladen von Dateien 🎯')
     st.write('''
     Die Personen mit gültigen Zugrifsrechten dürfen des System-Dateien jederzeit Hoch- bzw. Runterladen.
-
     Danach könnten die Anwender bei Bedarf das Bericht lokal auf anwender-PC in MS Word Form korriegieren, konwertieren (in: PDF, HTML) und auf GitHub zurückspeichern.
-   
     ''')
     
     col1,col2 = st.columns((4,1))
@@ -294,13 +292,13 @@ def laden():
             data = open(filename, "rb").read()
             encoded = base64.b64encode(data)
             decoded = base64.b64decode(encoded)
-            st.sitebar.download_button('Herunterladen hier', decoded, filename) 
+            st.download_button('Herunterladen hier', decoded, filename) 
         elif filename.find('.pdf') > 0:
             st.write('You selected `%s`' % filename)
             data = open(filename, "rb").read()
             encoded = base64.b64encode(data)
             decoded = base64.b64decode(encoded)
-            st.sitebar.download_button('Herunterladen hier', decoded, filename) 
+            st.download_button('Herunterladen hier', decoded, filename) 
             #get_binary_file_downloader_html(filename, file_label='File')
              
 def BeModellen():        

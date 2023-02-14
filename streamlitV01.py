@@ -134,11 +134,8 @@ def main0():
     elif options == 'Einführung':
         Einführung()
     elif options == 'Bericht Visualisierung':
-        #PdfExport()
         select_file()
     elif options == 'Herunterladen von Dateien':
-        #laden()
-        #DataExport()  
         saveas()
     elif options == 'Beispiel 18 Modellen':
         BeModellen()  
@@ -195,8 +192,7 @@ def PdfExport():
             st.sidebar.write('RTF File')
         elif uploaded_file.name.find('.pdf') > 0:  
             show_pdf(uploaded_file.name)
-            
-            
+             
 def select_file():
     parent_path = '/app/streamlit-example'
     fileList = []
@@ -224,8 +220,6 @@ def file_selector(folder_path=path, type=['.docx', '.pdf']):
     filenames = os.listdir(folder_path)
     selected_filename = st.selectbox('Select a file', filenames)
     return os.path.join(folder_path, selected_filename)
-
-#save_downloadedfile_local(os.path.join(folder_path, selected_filename))
             
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])
@@ -298,7 +292,7 @@ def Einführung():
         st.image(be4, width=800 )
         st.markdown("")  
 
-def laden():    
+def Xladen():    
     st.title('Heunterladen von Dateien 🎯')
     st.write('''
     Die Personen mit gültigen Zugrifsrechten dürfen des System-Dateien jederzeit Hoch- bzw. Runterladen.
@@ -321,12 +315,7 @@ def laden():
             st.write('You selected `%s`' % filename)
             #st.download_button('Herunterladen hier', decoded, filename) 
             get_binary_file_downloader_html(filename, file_label='File')
-            
- #if uploaded_file.name.find('.docx') > 0:  
- #    save_uploadedfile_local(uploaded_file)
- #elif uploaded_file.name.find('.pdf') > 0:  
- #    save_uploadedfile_local(uploaded_file)       
-            
+             
 def BeModellen():        
     st.header("Beispiel: 18 Maschinen Lernen Modellen")
     HtmlFile = open("A++Nostalgi08.html", 'r', encoding='utf-8')

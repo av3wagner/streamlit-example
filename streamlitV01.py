@@ -12,7 +12,7 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
-localp = "C:/Test")
+localp = "C:/Test"
 st.write(os.path.join(localp, "Test.docx")) 
 #outf=os.path.join(path, "data/Test.docx")
 #st.write(outf)

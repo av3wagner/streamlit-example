@@ -213,7 +213,7 @@ def select_file_down():
     
 def file_selector(folder_path=path, type=['.docx', '.pdf']):
     filenames = os.listdir(folder_path)
-    selected_filename = st.sitebar.selectbox('Select a file', filenames)
+    selected_filename = st.selectbox('Select a file', filenames)
     return os.path.join(folder_path, selected_filename)
 
 #save_downloadedfile_local(os.path.join(folder_path, selected_filename))

@@ -124,7 +124,7 @@ def read_markdown_file(markdown_file):
     return w    
 
 def main():
-    #st.set_page_config(layout="wide")
+    st.set_page_config(layout="wide")
     st.sidebar.title('Navigation')
     options = st.sidebar.radio('Bitte wählen Sie eine Seite:', 
         ['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Beispiel 18 Modellen', 'Über uns'])

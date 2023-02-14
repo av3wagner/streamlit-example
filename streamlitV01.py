@@ -139,7 +139,8 @@ def main():
         DataImport()
     elif options == 'Herunterladen von Dateien':
         #saveas()
-        select_file_down()
+        #select_file_down()
+        laden()
     elif options == 'Beispiel 18 Modellen':
         BeModellen()          
     
@@ -296,8 +297,8 @@ def laden():
             st.download_button('Herunterladen hier', decoded, filename) 
         elif filename.find('.pdf') > 0:
             st.write('You selected `%s`' % filename)
-            #st.download_button('Herunterladen hier', decoded, filename) 
-            get_binary_file_downloader_html(filename, file_label='File')
+            st.download_button('Herunterladen hier', decoded, filename) 
+            #get_binary_file_downloader_html(filename, file_label='File')
              
 def BeModellen():        
     st.header("Beispiel: 18 Maschinen Lernen Modellen")

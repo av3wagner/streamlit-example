@@ -12,7 +12,7 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
-outf=os.path.join("path", "Test.docx")
+outf=os.path.join(path, "Test.docx")
 st.write(outf)
 
 profile  = Image.open('data/AWagner.JPG')

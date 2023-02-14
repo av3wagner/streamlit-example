@@ -34,7 +34,6 @@ def show_pdf(file_path):
         st.markdown("")
    
     with col2:  
-        #st.title('Visualisierung des Berichts in PDF-Form')
         st.title('✨ Visualisierung des Berichts in PDF-Form 📄📜')
         st.markdown("")
         with open(file_path,"rb") as f:
@@ -48,7 +47,6 @@ def save_uploadedfile(uploadedfile):
         OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
         st.write(OutPDF)
     return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
-
 
 def save_selectfile(uploadedfile):
     with open(os.path.join(localp, uploadedfile.name), "wb") as f:     
@@ -66,18 +64,6 @@ def saveas():
                     save_selectfile(uploaded_file)
                 elif uploaded_file.name.find('.pdf') > 0:  
                     save_selectfile(uploaded_file)      
-
-        
-def saveas():    
-    uploadedfiles = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)    
-    for file in uploadedfiles:
-        if uploadedfiles is not None:
-            for uploaded_file in uploadedfiles:
-                file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
-                if uploaded_file.name.find('.docx') > 0:  
-                    save_selectfile(uploaded_file)
-                elif uploaded_file.name.find('.pdf') > 0:  
-                    save_selectfile(uploaded_file) 
  
 def save_downloadedfile(uploadedfile):
     with open(os.path.join(localp, uploadedfile.name), "wb") as f:    

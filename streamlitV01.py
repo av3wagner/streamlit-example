@@ -13,7 +13,7 @@ import streamlit.components.v1 as components
 options = "Home"
 path = os.getcwd()
 localp = "C:/Temp"
-st.write(os.path.join(localp, "Test.docx")) 
+#st.write(os.path.join(localp, "Test.docx")) 
 #outf=os.path.join(path, "data/Test.docx")
 #st.write(outf)
 
@@ -300,18 +300,17 @@ def laden():
     
     col1,col2 = st.columns((4,1))
     with col1:  
-        st.header("Herunterladen des Word-Dokuments auf lokal-PC")
+        st.header(Herunterladen von Dateien 🎯")
         st.markdown("")          
         filename = file_selector(folder_path=path)
-        st.write("path: ", path)
+        #st.write("path: ", path)
         st.write('You selected `%s`' % filename)
-        st.write(filename)                        
+        #st.write(filename)                        
              
         data = open(filename, "rb").read()
         encoded = base64.b64encode(data)
         decoded = base64.b64decode(encoded)
         st.download_button('Herunterladen hier', decoded, filename) 
-        
         #st.header("Hochladen des Word-Dokuments vom lokal-PC auf GitHub")
         #st.markdown("")  
         

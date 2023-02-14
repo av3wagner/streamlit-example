@@ -165,7 +165,8 @@ def select_file_down():
     onlyfiles = [f for f in fileList if isfile(join(parent_path, f)) and  (f.endswith(".pdf") or f.endswith(".docx"))]    
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
     file_location=os.path.join(parent_path, option) 
-    st.write(file_location)
+    st.write("Ausgewählte Datei: {}".format(file_location))
+    #return st.success("Saved File: {}".format(outf))
     #save_downloadedfile(file_location)
     
     #if file_location.find('.pdf') > 0:  

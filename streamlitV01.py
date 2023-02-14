@@ -108,7 +108,8 @@ def main():
     elif options == 'Hochladen von Dateien':
         DataImport()
     elif options == 'Herunterladen von Dateien':
-        DataExport()  
+        #DataExport()  
+        select_file_down()
     elif options == 'Beispiel 18 Modellen':
         BeModellen()          
     
@@ -154,6 +155,19 @@ def select_file():
     file_location=os.path.join(parent_path, option) # use `file_location` as a parameter to the main script
     if file_location.find('.pdf') > 0:  
         show_pdf(file_location)
+        
+def select_file_down():
+    parent_path = path #'/app/streamlit-example'
+    fileList = []
+    extensions = ['pdf', 'docx']
+    fileList = listdir(parent_path)
+    onlyfiles = [f for f in fileList if isfile(join(parent_path, f)) and  (f.endswith(".pdf") or f.endswith(".docx"))]    
+    option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
+    file_location=os.path.join(parent_path, option) 
+    save_downloadedfile(file_location)
+    
+    #if file_location.find('.pdf') > 0:  
+    #    show_pdf(file_location)        
             
 def welcome():
     col1, col2, col3 = st.columns( [1, 8, 1])

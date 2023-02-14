@@ -300,7 +300,7 @@ def laden():
     
     col1,col2 = st.columns((4,1))
     with col1:  
-        st.header(Herunterladen von Dateien 🎯")
+        st.header("Herunterladen von Dateien 🎯")
         st.markdown("")          
         filename = file_selector(folder_path=path)
         #st.write("path: ", path)

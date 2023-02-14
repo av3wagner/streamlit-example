@@ -60,7 +60,7 @@ def save_uploadedfile0(uploadedfile):
 def save_downloadedfile(uploadedfile):
     st.write(uploadedfile)
     with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
-        f.write(uploadedfile.getbuffer())
+        #f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(localp, uploadedfile.name))
         st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))    

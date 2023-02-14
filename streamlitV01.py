@@ -60,7 +60,7 @@ def save_uploadedfile0(uploadedfile):
 def save_downloadedfile(uploadedfile):
     st.write(uploadedfile)
     with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
-        #f.write(uploadedfile.getbuffer())
+        f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(localp, uploadedfile.name))
         st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))    
@@ -168,8 +168,7 @@ def select_file_down():
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
     file_location=os.path.join(parent_path, option) 
     st.write("Ausgewählte Datei: {}".format(file_location))
-    #return st.success("Saved File: {}".format(outf))
-    save_downloadedfile(file_location)
+    save_downloadedfile(onlyfiles)
     
     #if file_location.find('.pdf') > 0:  
     #    show_pdf(file_location)        

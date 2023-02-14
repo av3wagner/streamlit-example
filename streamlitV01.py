@@ -12,6 +12,7 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
+st.write(path)
 
 profile  = Image.open('data/AWagner.JPG')
 profile2 = Image.open('AWprofil.jpg')
@@ -40,8 +41,10 @@ def show_pdf(file_path):
 
 def save_uploadedfile(uploadedfile):
     with open(os.path.join("data", uploadedfile.name), "wb") as f:    
+        outf=os.path.join("data", uploadedfile.name)
         f.write(uploadedfile.getbuffer())
-    return st.success("Saved File:{} to Output".format(uploadedfile.name))
+    #return st.success("Saved File:{} to Output".format(uploadedfile.name))
+    return st.success("Saved File:{} to Output".format(outf))
         
         
 def get_binary_file_downloader_html(bin_file, file_label='File'):    

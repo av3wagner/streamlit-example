@@ -75,6 +75,33 @@ def save_downloadedfile_local(uploadedfile):
         #OutPDF=(os.path.join(localp, uploadedfile))
         #st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))      
+
+def save_uploadedfile_local(uploadedfile):
+    st.write("uploadedfile: {}".format(uploadedfile))
+    st.write("uploadedfile.name: {}".format(uploadedfile.name))
+    st.write("Uploadedfile Finish: {}".format(os.path.join(localp, uploadedfile.name)))
+    file_details: {'FileName': UploadedFile(id=1, name='KSFE2023.pdf', type='application/pdf', size=2345941), 'FileType': 'application/pdf'}
+    #uploadedfile: UploadedFile(id=1, name='KSFE2023.pdf', type='application/pdf', size=2345941)
+    #uploadedfile.name: KSFE2023.pdf
+    #Uploadedfile Finish: C:\Temp\KSFE2023.pdf
+    #Runtergeladen auf lokal: C:\Temp\KSFE2023.pdf
+    
+    with open(os.path.join(localp, uploadedfile.name), "wb") as f:
+        f.write(uploadedfile.getbuffer())
+        OutPDF=(os.path.join(localp, uploadedfile.name))
+        st.sidebar.write("Runtergeladen auf lokal: {}".format(OutPDF))    
+    return st.success("Runtergeladen auf lokal: {}".format(OutPDF))
+
+def DataExportToLocal():  
+    st.sidebar.title("Runterladen von Dateien")
+    uploaded_files = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)
+    for uploaded_file in uploaded_files:
+        file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
+        st.write("file_details: {}".format(file_details))
+        if uploaded_file.name.find('.docx') > 0:  
+            save_uploadedfile_local(uploaded_file)
+        elif uploaded_file.name.find('.pdf') > 0:  
+            save_uploadedfile_local(uploaded_file)
     
 def get_binary_file_downloader_html(bin_file, file_label='File'):    
     with open(bin_file, 'rb') as f:
@@ -123,7 +150,8 @@ def main():
         DataImport()
     elif options == 'Herunterladen von Dateien':
         #DataExport()  
-        select_file_down()
+        #select_file_down()
+        DataExportToLocal()              
     elif options == 'Beispiel 18 Modellen':
         BeModellen()          
     

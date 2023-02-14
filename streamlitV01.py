@@ -44,6 +44,7 @@ def save_uploadedfile(uploadedfile):
     with open(os.path.join(path, "", "data", uploadedfile.name), "wb") as f:        
         f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
+        st.sitebar.write(OutPDF)
     return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
                 
         

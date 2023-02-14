@@ -69,7 +69,7 @@ def save_downloadedfile_local(uploadedfile):
     OutPDF=os.path.join(localp, uploadedfile) #"app/streamlit-example/AVaS2023FinishAbb.docx"
     st.write(OutPDF)
     #with open(os.path.join(localp, uploadedfile), "wb") as f:    
-    with open(OutPDF, "wb") as f:        
+    with open(uploadedfile, "wb") as f:        
         #f.write(uploadedfile.getbuffer())
         f.write(OutPDF.getbuffer())
         #OutPDF=(os.path.join(localp, uploadedfile))

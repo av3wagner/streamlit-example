@@ -48,6 +48,27 @@ def save_uploadedfile(uploadedfile):
         OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
         st.write(OutPDF)
     return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
+
+
+def save_selectfile(uploadedfile):
+    #with open(os.path.join("Output", uploadedfile.name), "wb") as f:    
+    with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
+        f.write(uploadedfile.getbuffer())
+        #OutPDF=(os.path.join(path, "", "Output", uploadedfile.name))
+        OutPDF=(os.path.join(localp, uploadedfile.name))
+    return st.sidebar.success("Gespeichert als: {}".format(OutPDF))
+
+def saveas():    
+    uploadedfiles = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)    
+    for file in uploadedfiles:
+        if uploadedfiles is not None:
+            for uploaded_file in uploadedfiles:
+                file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
+                if uploaded_file.name.find('.docx') > 0:  
+                    save_selectfile(uploaded_file)
+                elif uploaded_file.name.find('.pdf') > 0:  
+                    save_selectfile(uploaded_file)      
+
         
 def save_uploadedfile0(uploadedfile):
     with open(os.path.join(path, "data", uploadedfile.name), "wb") as f:    
@@ -130,7 +151,8 @@ def main0():
         select_file()
     elif options == 'Herunterladen von Dateien':
         #laden()
-        DataExport()  
+        #DataExport()  
+        saveas()
     elif options == 'Beispiel 18 Modellen':
         BeModellen()  
 

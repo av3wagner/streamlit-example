@@ -123,23 +123,6 @@ def read_markdown_file(markdown_file):
         w = fp.read()
     return w    
 
-def main0():
-    st.set_page_config(layout="wide")
-    st.sidebar.title('Navigation')
-    options = st.sidebar.radio('Bitte wählen Sie eine Seite:', 
-        ['Einführung', 'Bericht Visualisierung', 'Herunterladen von Dateien', 'Beispiel 18 Modellen', 'Über uns'])
-
-    if options == 'Über uns':
-        welcome() 
-    elif options == 'Einführung':
-        Einführung()
-    elif options == 'Bericht Visualisierung':
-        select_file()
-    elif options == 'Herunterladen von Dateien':
-        saveas()
-    elif options == 'Beispiel 18 Modellen':
-        BeModellen()  
-
 def main():
     #st.set_page_config(layout="wide")
     st.sidebar.title('Navigation')
@@ -155,10 +138,7 @@ def main():
     elif options == 'Hochladen von Dateien':
         DataImport()
     elif options == 'Herunterladen von Dateien':
-        #DataExport()  
-        #select_file_down()
-        #DataExportToLocal()              
-        laden()
+        saveas()
     elif options == 'Beispiel 18 Modellen':
         BeModellen()          
     
@@ -292,7 +272,7 @@ def Einführung():
         st.image(be4, width=800 )
         st.markdown("")  
 
-def Xladen():    
+def laden():    
     st.title('Heunterladen von Dateien 🎯')
     st.write('''
     Die Personen mit gültigen Zugrifsrechten dürfen des System-Dateien jederzeit Hoch- bzw. Runterladen.

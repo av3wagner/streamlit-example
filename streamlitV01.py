@@ -119,7 +119,7 @@ def main0():
     st.set_page_config(layout="wide")
     st.sidebar.title('Navigation')
     options = st.sidebar.radio('Bitte wählen Sie eine Seite:', 
-        ['Einführung', 'Bericht Visualisierung', 'Hoch- Runterladen der Dateien', 'Beispiel 18 Modellen', 'Über uns'])
+        ['Einführung', 'Bericht Visualisierung', 'Herunterladen von Dateien', 'Beispiel 18 Modellen', 'Über uns'])
 
     if options == 'Über uns':
         welcome() 
@@ -128,7 +128,7 @@ def main0():
     elif options == 'Bericht Visualisierung':
         #PdfExport()
         select_file()
-    elif options == 'Hoch- Runterladen der Dateien':
+    elif options == 'Herunterladen von Dateien':
         #laden()
         DataExport()  
     elif options == 'Beispiel 18 Modellen':
@@ -290,7 +290,7 @@ def Einführung():
         st.markdown("")  
 
 def laden():    
-    st.title('Heunterladen der Dateien')
+    st.title('Heunterladen der Dateien 🎯')
     st.write('''
     Die Personen mit gültigen Zugrifsrechten dürfen des System-Dateien jederzeit Hoch- bzw. Runterladen.
 
@@ -300,8 +300,8 @@ def laden():
     
     col1,col2 = st.columns((4,1))
     with col1:  
-        st.header("Herunterladen von Dateien 🎯")
-        st.markdown("")          
+        #st.header("Herunterladen von Dateien 🎯")
+        #st.markdown("")          
         filename = file_selector(folder_path=path)
         #st.write("path: ", path)
         st.write('You selected `%s`' % filename)

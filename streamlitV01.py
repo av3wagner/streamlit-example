@@ -168,7 +168,7 @@ def select_file_down():
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
     file_location=os.path.join(parent_path, option) 
     st.write("Ausgewählte Datei: {}".format(file_location))
-    save_downloadedfile(onlyfiles)
+    save_downloadedfile(option)
     
     #if file_location.find('.pdf') > 0:  
     #    show_pdf(file_location)        

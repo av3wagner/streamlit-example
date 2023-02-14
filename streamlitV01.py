@@ -12,7 +12,7 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
-localp = "C:/Test"
+localp = "C:/Temp"
 st.write(os.path.join(localp, "Test.docx")) 
 #outf=os.path.join(path, "data/Test.docx")
 #st.write(outf)
@@ -58,16 +58,22 @@ def save_uploadedfile0(uploadedfile):
     return st.success("Saved File: {}".format(outf))
  
 def save_downloadedfile(uploadedfile):
-    st.write(uploadedfile)
-    OutPDF=os.path.join(localp, uploadedfile)
-    st.write(OutPDF)
-    
-    #with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
-        #f.write(uploadedfile.getbuffer())
-        #OutPDF=(os.path.join(localp, uploadedfile.name))
-        #st.write(OutPDF)
+    with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
+         f.write(uploadedfile.getbuffer())
+         OutPDF=(os.path.join(localp, uploadedfile.name))
+         st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))    
-        
+  
+def save_downloadedfile_local(uploadedfile):
+    #st.write(uploadedfile)
+    #OutPDF=os.path.join(localp, uploadedfile)
+    #st.write(OutPDF)
+    with open(os.path.join(localp, uploadedfile), "wb") as f:    
+        f.write(uploadedfile.getbuffer())
+        OutPDF=(os.path.join(localp, uploadedfile))
+        st.write(OutPDF)
+    return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))      
+    
 def get_binary_file_downloader_html(bin_file, file_label='File'):    
     with open(bin_file, 'rb') as f:
         data = f.read()
@@ -172,7 +178,7 @@ def select_file_down():
     file_location=os.path.join(parent_path, option) 
     st.write("Ausgewählte Pfad: {}".format(file_location))
     st.write("Ausgewählte Datei: {}".format(option))
-    save_downloadedfile(option)
+    save_downloadedfile_local(option)
     
     #if file_location.find('.pdf') > 0:  
     #    show_pdf(file_location)        

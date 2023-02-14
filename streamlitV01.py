@@ -138,7 +138,8 @@ def main():
     elif options == 'Hochladen von Dateien':
         DataImport()
     elif options == 'Herunterladen von Dateien':
-        saveas()
+        #saveas()
+        select_file_down()
     elif options == 'Beispiel 18 Modellen':
         BeModellen()          
     
@@ -194,7 +195,9 @@ def select_file_down():
     file_location=os.path.join(parent_path, option) 
     st.write("Ausgewählte Pfad: {}".format(file_location))
     st.write("Ausgewählte Datei: {}".format(option))
-    save_downloadedfile_local(option)
+    #save_downloadedfile_local(option)
+    save_selectfile(option)
+    
     
 def file_selector(folder_path=path, type=['.docx', '.pdf']):
     filenames = os.listdir(folder_path)

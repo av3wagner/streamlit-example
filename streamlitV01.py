@@ -308,7 +308,7 @@ def laden():
             encoded = base64.b64encode(data)
             decoded = base64.b64decode(encoded)
             st.download_button('Herunterladen hier', decoded, filename) 
-        elif:
+        elif filename.find('.pdf') > 0:
             get_binary_file_downloader_html(filename, file_label='File')
         
 def BeModellen():        

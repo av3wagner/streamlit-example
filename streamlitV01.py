@@ -94,7 +94,7 @@ def save_uploadedfile_local(uploadedfile):
 
 def DataExportToLocal():  
     st.sidebar.title("Runterladen von Dateien")
-    uploaded_files = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)
+    uploaded_files = st.sidebar.file_uploader(path, type=['.docx', '.pdf'], accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
         st.write("file_details: {}".format(file_details))

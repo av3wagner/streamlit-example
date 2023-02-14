@@ -40,12 +40,12 @@ def show_pdf(file_path):
         st.markdown(pdf_display, unsafe_allow_html=True)
 
 def save_uploadedfile(uploadedfile):
-    with open(os.path.join("data", uploadedfile.name), "wb") as f:    
-        outf=os.path.join("data", uploadedfile.name)
+    with open(os.path.join("path", uploadedfile.name), "wb") as f:    
+        outf=os.path.join("path", uploadedfile.name)
         st.write(outf)
         f.write(uploadedfile.getbuffer())
     #return st.success("Saved File:{} to Output".format(uploadedfile.name))
-    return st.success("Saved File:{} to Output".format(outf))
+    return st.success("Saved File:{} to Cloud".format(outf))
         
         
 def get_binary_file_downloader_html(bin_file, file_label='File'):    

@@ -65,13 +65,14 @@ def save_downloadedfile(uploadedfile):
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))    
   
 def save_downloadedfile_local(uploadedfile):
-    #st.write(uploadedfile)
-    #OutPDF=os.path.join(localp, uploadedfile)
-    #st.write(OutPDF)
-    with open(os.path.join(localp, uploadedfile), "wb") as f:    
+    st.write(uploadedfile)
+    OutPDF=os.path.join(localp, uploadedfile)
+    st.write(OutPDF)
+    #with open(os.path.join(localp, uploadedfile), "wb") as f:    
+    with open(OutPDF, "wb") as f:        
         f.write(uploadedfile.getbuffer())
-        OutPDF=(os.path.join(localp, uploadedfile))
-        st.write(OutPDF)
+        #OutPDF=(os.path.join(localp, uploadedfile))
+        #st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))      
     
 def get_binary_file_downloader_html(bin_file, file_label='File'):    

@@ -297,6 +297,9 @@ def laden():
             st.download_button('Herunterladen hier', decoded, filename) 
         elif filename.find('.pdf') > 0:
             st.write('You selected `%s`' % filename)
+            data = open(filename, "rb").read()
+            encoded = base64.b64encode(data)
+            decoded = base64.b64decode(encoded)
             st.download_button('Herunterladen hier', decoded, filename) 
             #get_binary_file_downloader_html(filename, file_label='File')
              

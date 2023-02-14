@@ -12,8 +12,8 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
-outf=os.path.join(path, "data/Test.docx")
-st.write(outf)
+#outf=os.path.join(path, "data/Test.docx")
+#st.write(outf)
 
 profile  = Image.open('data/AWagner.JPG')
 profile2 = Image.open('AWprofil.jpg')
@@ -41,12 +41,19 @@ def show_pdf(file_path):
         st.markdown(pdf_display, unsafe_allow_html=True)
 
 def save_uploadedfile(uploadedfile):
+    with open(os.path.join(path, "", "data", uploadedfile.name), "wb") as f:        
+        f.write(uploadedfile.getbuffer())
+        OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
+    return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
+                
+        
+def save_uploadedfile0(uploadedfile):
     with open(os.path.join(path, "data", uploadedfile.name), "wb") as f:    
         outf=os.path.join(path, "data", uploadedfile.name)
         st.write(outf)
         f.write(uploadedfile.getbuffer())
     #return st.success("Saved File:{} to Output".format(uploadedfile.name))
-    return st.success("Saved File:{} to Cloud: ".format(outf))
+    return st.success("Saved File: {}".format(outf))
         
         
 def get_binary_file_downloader_html(bin_file, file_label='File'):    

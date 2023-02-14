@@ -12,6 +12,7 @@ import streamlit.components.v1 as components
 
 options = "Home"
 path = os.getcwd()
+localp = "C:/Test"
 #outf=os.path.join(path, "data/Test.docx")
 #st.write(outf)
 
@@ -46,7 +47,6 @@ def save_uploadedfile(uploadedfile):
         OutPDF=(os.path.join(path, "", "data", uploadedfile.name))
         st.write(OutPDF)
     return st.success("Hochgeladen auf Cloud: {}".format(OutPDF))
-                
         
 def save_uploadedfile0(uploadedfile):
     with open(os.path.join(path, "data", uploadedfile.name), "wb") as f:    
@@ -55,7 +55,12 @@ def save_uploadedfile0(uploadedfile):
         f.write(uploadedfile.getbuffer())
     #return st.success("Saved File:{} to Output".format(uploadedfile.name))
     return st.success("Saved File: {}".format(outf))
-        
+ 
+def save_downloadedfile(uploadedfile):
+    with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
+        f.write(uploadedfile.getbuffer())
+        OutPDF=(os.path.join(localp, uploadedfile.name))
+    return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))    
         
 def get_binary_file_downloader_html(bin_file, file_label='File'):    
     with open(bin_file, 'rb') as f:
@@ -110,7 +115,7 @@ def main():
 # File Export
 def DataExport():  
     st.sidebar.title("Herunterladen von Dateien 🎯")
-    uploaded_files = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)
+    uploaded_files = st.sidebar.file_uploader(path, type=['.docx', '.pdf'], accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         file_details = {"FileName":uploaded_file,"FileType":uploaded_file.type}
         if uploaded_file.name.find('.docx') > 0:  

@@ -290,7 +290,7 @@ def Einführung():
         st.markdown("")  
 
 def laden():    
-    st.title('Heunterladen der Dateien 🎯')
+    st.title('Heunterladen von Dateien 🎯')
     st.write('''
     Die Personen mit gültigen Zugrifsrechten dürfen des System-Dateien jederzeit Hoch- bzw. Runterladen.
 

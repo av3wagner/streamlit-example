@@ -60,6 +60,7 @@ def save_downloadedfile(uploadedfile):
     with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
         f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(localp, uploadedfile.name))
+        st.write(OutPDF)
     return st.success("Heruntergeladen auf Festplatte: {}".format(OutPDF))    
         
 def get_binary_file_downloader_html(bin_file, file_label='File'):    
@@ -164,6 +165,7 @@ def select_file_down():
     onlyfiles = [f for f in fileList if isfile(join(parent_path, f)) and  (f.endswith(".pdf") or f.endswith(".docx"))]    
     option = st.sidebar.selectbox('Pick a dataset', onlyfiles)
     file_location=os.path.join(parent_path, option) 
+    st.write(file_location)
     save_downloadedfile(file_location)
     
     #if file_location.find('.pdf') > 0:  

@@ -302,11 +302,12 @@ def laden():
     with col1:  
         filename = file_selector(folder_path=path, type=['.docx', 'html'])
         #file_selector(folder_path=path, type=['.docx', '.pdf']):
-        st.write('You selected `%s`' % filename)
-        data = open(filename, "rb").read()
-        encoded = base64.b64encode(data)
-        decoded = base64.b64decode(encoded)
-        st.download_button('Herunterladen hier', decoded, filename) 
+        if filename.find('.pdf') < 0:  
+            st.write('You selected `%s`' % filename)
+            data = open(filename, "rb").read()
+            encoded = base64.b64encode(data)
+            decoded = base64.b64decode(encoded)
+            st.download_button('Herunterladen hier', decoded, filename) 
         
 def BeModellen():        
     st.header("Beispiel: 18 Maschinen Lernen Modellen")

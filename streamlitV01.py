@@ -59,7 +59,7 @@ def save_uploadedfile0(uploadedfile):
  
 def save_downloadedfile(uploadedfile):
     st.write(uploadedfile)
-    OutPDF=(os.path.join(localp, uploadedfile.name))
+    OutPDF=os.path.join(localp, uploadedfile)
     st.write(OutPDF)
     
     #with open(os.path.join(localp, uploadedfile.name), "wb") as f:    

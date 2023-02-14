@@ -58,6 +58,7 @@ def save_uploadedfile0(uploadedfile):
     return st.success("Saved File: {}".format(outf))
  
 def save_downloadedfile(uploadedfile):
+    st.write(uploadedfile)
     with open(os.path.join(localp, uploadedfile.name), "wb") as f:    
         #f.write(uploadedfile.getbuffer())
         OutPDF=(os.path.join(localp, uploadedfile.name))

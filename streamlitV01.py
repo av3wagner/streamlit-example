@@ -55,7 +55,7 @@ def save_selectfile(uploadedfile):
     return st.sidebar.success("Gespeichert als: {}".format(OutPDF))
 
 def saveas():    
-    uploadedfiles = st.sidebar.file_uploader(" ", type=['.docx', '.pdf'], accept_multiple_files=True)    
+    uploadedfiles = st.sidebar.file_uploader(path, type=['.docx', '.pdf'], accept_multiple_files=True)    
     for file in uploadedfiles:
         if uploadedfiles is not None:
             for uploaded_file in uploadedfiles:

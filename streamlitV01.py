@@ -228,8 +228,9 @@ def welcome():
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown("")
                 
-        intro_markdown = read_markdown_file("DrWagner3.md")
-        st.markdown(intro_markdown, unsafe_allow_html=True)
+        #intro_markdown = read_markdown_file("DrWagner3.md")
+        #st.markdown(intro_markdown, unsafe_allow_html=True)
+        MdFileToStreamlit()
         
     with col3:              
         st.markdown(""" <style> .font {
@@ -307,6 +308,22 @@ def BeModellen():
     source_code = HtmlFile.read() 
     components.html(source_code, width=1800, height=2000, scrolling=True)
 
+def MdFileToStreamlit():
+    with open("DrWagner.md", 'r') as f:
+        readme_line = f.readlines()
+        readme_buffer = []
+        resource_files = [os.path.basename(x) for x in glob.glob(f'Resources/*')]
+
+    for line in readme_line :
+        readme_buffer.append(line) 
+        for image in resource_files:
+            if image in line:
+                st.markdown(''.join(readme_buffer[:-1])) 
+                st.image(f'Resources/{image}')
+                readme_buffer.clear()
+
+    st.markdown(''.join(readme_buffer))    
+       
         
 if __name__ == "__main__":
     main()

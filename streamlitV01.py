@@ -128,7 +128,8 @@ def main():
     st.set_page_config(layout="wide")
     st.sidebar.title('Navigation')
     options = st.sidebar.radio('Bitte wählen Sie eine Seite:', 
-        ['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Beispiel 18 Modellen', 'Über uns'])
+        ['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Über uns'])                               
+        #['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Beispiel 18 Modellen', 'Über uns'])
 
     if options == 'Über uns':
         welcome() 
@@ -142,8 +143,8 @@ def main():
         #saveas()
         #select_file_down()
         laden()
-    elif options == 'Beispiel 18 Modellen':
-        BeModellen()          
+    #elif options == 'Beispiel 18 Modellen':
+        #BeModellen()          
     
 # File Export
 def DataExport():  

@@ -128,10 +128,10 @@ def main():
     st.set_page_config(layout="wide")
     st.sidebar.title('Navigation')
     options = st.sidebar.radio('Bitte wählen Sie eine Seite:', 
-        ['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Über uns'])                               
+        ['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Über mich'])                               
         #['Einführung', 'Bericht Visualisierung','Hochladen von Dateien', 'Herunterladen von Dateien', 'Beispiel 18 Modellen', 'Über uns'])
 
-    if options == 'Über uns':
+    if options == 'Über mich':
         welcome() 
     elif options == 'Einführung':
         Einführung()
@@ -221,7 +221,7 @@ def welcome():
         st.markdown("")
         st.markdown("")
         st.image(profile, width=400 )
-        title1 = '<p style="font-family:sans-serif; color:Black; font-weight:bold; font-size: 12px;">MSD SHARP & DOHME GMBH: Alexander Wagner. Мюнхен, 2010</p>'
+        title1 = '<p style="font-family:sans-serif; color:Black; font-weight:bold; font-size: 12px;">Alexander Wagner. Мюнхен, 2010</p>'
         st.markdown(title1, unsafe_allow_html=True)
         st.markdown("")
         
@@ -229,9 +229,6 @@ def welcome():
         new_title = '<p style="font-family:sans-serif; color:Black; font-weight:bold; font-size: 12px;">Baustelle: Alexander Wagner 4. von links. Almaty, April 1973</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         st.markdown("")
-                
-        #intro_markdown = read_markdown_file("DrWagner3.md")
-        #st.markdown(intro_markdown, unsafe_allow_html=True)
         MdFileToStreamlit()
         
     with col3:              

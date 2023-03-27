@@ -213,9 +213,9 @@ def welcome():
     with col1:              
         st.markdown("")
     with col2:  
-        st.title("Prof. Dr. Dirk Schieborn, Dipl. Math., Professor für Mathematik, Data Science und Statistik an der ESB Business School der Hochschule Reutlingen")
-        st.header("Leiter Steinbeis Transferzentrum Data Analytics und Predictive Modelling")
-        st.markdown("")
+        #st.title("Prof. Dr. Dirk Schieborn, Dipl. Math., Professor für Mathematik, Data Science und Statistik an der ESB Business School der Hochschule Reutlingen")
+        #st.header("Leiter Steinbeis Transferzentrum Data Analytics und Predictive Modelling")
+        #st.markdown("")
         
         st.title("Dr. Alexander Wagner, Berlin")
         st.markdown("")

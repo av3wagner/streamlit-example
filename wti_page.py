@@ -24,11 +24,11 @@ CONTENT_STYLE = {
     "padding": "2rem 1rem",
 }
 
-File1="C:\\IPYNBgesamt2025\\ASNI-FEN-ONE\\Resource\\ASNI-ReadME\\ArtikelList.md"
-File2="C:\\IPYNBgesamt2025\\ASNI-FEN-ONE\\Resource\\MarkdownSample\\README05.md"
-File3="C:\\IPYNBgesamt2025\\ASNI-FEN-ONE\\Resource\\MarkdownSample\\+Resume04.md"
-MdFile="C:\\IPYNBgesamt2025\\ASNI-FEN-ONE\\Resource\\ASNI-ReadME\\AWresume.md"
-Asni="C:\\IPYNBgesamt2025\\ASNI-FEN-ONE\\Resource\\ASNI-ReadME\\TOC10+.md"
+File1="ArtikelList.md"
+File2="README05.md"
+File3="+Resume04.md"
+MdFile="AWresume.md"
+Asni="TOC10+.md"
 
 image_path = 'assets/WagnerFoto.jpg'
 image = html.Img(src='assets/WagnerFoto.jpg', style={"height":"200", "width":"150", 'padding-left': 220,})

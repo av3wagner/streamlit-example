@@ -49,8 +49,8 @@ tab_selected_style = {
 DesktopWidth="1707px"
 DesktopHeight="960px"
 
-Front_image = html.Img(src='assets/Front.jpg', style={"height":"200", "width":"150", 'padding-left':10,})
-image = html.Img(src='assets/WagnerFoto.jpg', style={"height":"200", "width":"150", 'padding-left': 220,})
+Front_image = html.Img(src='Front.jpg', style={"height":"200", "width":"150", 'padding-left':10,})
+image = html.Img(src='WagnerFoto.jpg', style={"height":"200", "width":"150", 'padding-left': 220,})
 def b64_image(image_filename):
     with open(image_filename, 'rb') as f:
         image = f.read()
@@ -536,7 +536,7 @@ app.layout = html.Div([
               className='custom-tabs-container',
         children=[
             dcc.Tab(
-                label="Титул-лист системы",
+                label="Front-page системы",
                 value="Table11",
                 style=tab_style,
                 selected_style=tab_selected_style,
@@ -618,7 +618,7 @@ def render_content(value):
     
     elif tab == 'Table11':
         return html.Div([
-                    html.Img(src=b64_image('assets/Front4.jpg'),
+                    html.Img(src=b64_image('Front4.jpg'),
                         style={
                         "display": "inline-block",
                         "width": "99.75%",
@@ -675,7 +675,7 @@ def snapshot_page(value):
     if img==1:
         return html.Div([
             html.Div([
-            html.Img(src=b64_image('assets/WagnerFoto.jpg'),
+            html.Img(src=b64_image('WagnerFoto.jpg'),
                         style={
                         "display": "inline-block",
                         "width": "150px",
@@ -727,7 +727,7 @@ def snapshot_page(value):
                
                html.H1(children="x", style={'color': "#111111", 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem", "line-height": "0.7em"}), 
                html.H2(children="1.2 Совместный Приказ Института Математики и Научного Центра Минздрава о создании совместной лаборатории", style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "2.0rem"}),    
-               html.Img(src=b64_image('assets/Labor1.jpg'),
+               html.Img(src=b64_image('Labor1.jpg'),
                         style={
                         "display": "inline-block",
                         "width": "40%",
@@ -740,7 +740,7 @@ def snapshot_page(value):
                }), 
               html.H1(children="x", style={'color': "#111111", 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem", "line-height": "0.7em"}),      
               html.H2(children="1.3 Совместно утвержденное Положение о лаборатории со стороны Института Математики и Научного Центра Минздрава РК", style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "2.0rem"}),    
-              html.Img(src=b64_image('assets/Labor2.jpg'),
+              html.Img(src=b64_image('Labor2.jpg'),
                         style={
                         "display": "inline-block",
                         "width": "40%",
@@ -755,7 +755,7 @@ def snapshot_page(value):
              html.H1(children="x", style={'color': "#111111", 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem", "line-height": "0.7em"}),   
              html.H1(children="2. Избранная информация о опубликованных и находящихся в разработке научных монографиях автора в области анализа и прогноза здоровья населения", style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem"}),     
              html.H2(children="2.1 Обложка монографии. Алма-Ата 1995 ", style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "2.0rem"}),      
-             html.Img(src=b64_image('assets/Monograph1.jpg'),
+             html.Img(src=b64_image('Monograph1.jpg'),
                         style={
                         "display": "inline-block",
                         "width": "60%",
@@ -769,7 +769,7 @@ def snapshot_page(value):
               
              html.H1(children="x", style={'color': "#111111", 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem", "line-height": "0.7em"}),  
              html.H2(children="2.2 Рецензия на монографию О.Сакбаева и А.Вагнера", style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "2.0rem"}),      
-             html.Img(src=b64_image('assets/Monograph2.jpg'),
+             html.Img(src=b64_image('Monograph2.jpg'),
                         style={
                         "display": "inline-block",
                         "width": "60%",
@@ -788,7 +788,7 @@ def snapshot_page(value):
              html.H3(children="а) Оценка стоимости терапии и прогноз стоимости реабилитации пациентовв, перенесших инфаркт-инсульт на основании данных государственного регистра этих случаев (Эрланген-регистр) и даных Государственного статистического бюро Германии (Висбаден). По нашим расчетам и прогнозам это составило примерно 50.000€ в год на одного пациента.", style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "1.8rem"}),               
              html.H1(children="x", style={'color': "#111111", 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem", "line-height": "0.5em"}),                    
              html.H3(children="б) Математическое моделирование при помощи метода Монте-Карло для сравнения стоимости двух способов лечения (см. скрин статьи ниже).", style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "1.8rem"}),               
-             html.Img(src=b64_image('assets/Paper1.jpg'),
+             html.Img(src=b64_image('Paper1.jpg'),
                         style={
                         "display": "inline-block",
                         "width": "60%",
@@ -802,7 +802,7 @@ def snapshot_page(value):
               
              html.H1(children="x", style={'color': "#111111", 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem", "line-height": "0.7em"}), 
              html.H3(children=" в) Проект в области кардиологии (см. скрин статьи ниже). Работа была доложена на пленарном заседании международного Кадиоконгресса в Барселоне, 2009 г.   ", style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "1.8rem"}),       
-             html.Img(src=b64_image('assets/Paper2.jpg'),
+             html.Img(src=b64_image('Paper2.jpg'),
                         style={
                         "display": "inline-block",
                         "width": "60%",

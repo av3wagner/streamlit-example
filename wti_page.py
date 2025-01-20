@@ -6,34 +6,15 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
-
-# %% [markdown]
-# When running in JupyterHub or Binder, call the `infer_jupyter_config` function to detect the proxy configuration.
-
-# %%
-JupyterDash.infer_jupyter_proxy_config()
-
-# %% [markdown]
-# Load and preprocess data
-
-# %%
 df = pd.read_csv('https://plotly.github.io/datasets/country_indicators.csv')
 available_indicators = df['Indicator Name'].unique()
-
-# %% [markdown]
-# Construct the app and callbacks
-
-# %%
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
-
+#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+#app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(external_stylesheets=[dbc.themes.LUX])
 # Create server variable with Flask server object for use with gunicorn
 server = app.server
-
 app.layout = html.Div([
     html.Div([
-
         html.Div([
             dcc.Dropdown(
                 id='crossfilter-xaxis-column',
@@ -88,8 +69,6 @@ app.layout = html.Div([
         step=None
     ), style={'width': '49%', 'padding': '0px 20px 20px 20px'})
 ])
-
-
 @app.callback(
     dash.dependencies.Output('crossfilter-indicator-scatter', 'figure'),
     [dash.dependencies.Input('crossfilter-xaxis-column', 'value'),
@@ -101,7 +80,6 @@ def update_graph(xaxis_column_name, yaxis_column_name,
                  xaxis_type, yaxis_type,
                  year_value):
     dff = df[df['Year'] == year_value]
-
     return {
         'data': [dict(
             x=dff[dff['Indicator Name'] == xaxis_column_name]['Value'],
@@ -166,7 +144,6 @@ def update_y_timeseries(hoverData, xaxis_column_name, axis_type):
     title = '<b>{}</b><br>{}'.format(country_name, xaxis_column_name)
     return create_time_series(dff, axis_type, title)
 
-
 @app.callback(
     dash.dependencies.Output('y-time-series', 'figure'),
     [dash.dependencies.Input('crossfilter-indicator-scatter', 'hoverData'),
@@ -177,12 +154,5 @@ def update_x_timeseries(hoverData, yaxis_column_name, axis_type):
     dff = dff[dff['Indicator Name'] == yaxis_column_name]
     return create_time_series(dff, axis_type, yaxis_column_name)
 
-
-# %% [markdown]
-# Serve the app using `run_server`.  Unlike the standard `Dash.run_server` method, the `JupyterDash.run_server` method doesn't block execution of the notebook. It serves the app in a background thread, making it possible to run other notebook calculations while the app is running.
-#
-# This makes it possible to iteratively update the app without rerunning the potentially expensive data processing steps.
-
-# %%
 app.run_server()
 app.run_server(mode="inline")

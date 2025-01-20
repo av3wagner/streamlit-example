@@ -1,179 +1,188 @@
-import dash
-import dash_bootstrap_components as dbc
-from dash import Input, Output, dcc, html
-#import pandas as pd
-#import numpy as np
-from dash import Dash, dcc, html, Input, Output, State, callback
+# %%
 from jupyter_dash import JupyterDash
-import base64
 
-app = JupyterDash(external_stylesheets=[dbc.themes.SLATE])
-SIDEBAR_STYLE = {
-    "position": "fixed",
-    "top": 0,
-    "left": 0,
-    "bottom": 0,
-    "width": "16rem",
-    "padding": "2rem 1rem",
-    "background-color": "#f8f9fa",
-}
+# %%
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import pandas as pd
 
-CONTENT_STYLE = {
-    "margin-left": "18rem",
-    "margin-right": "2rem",
-    "padding": "2rem 1rem",
-}
+# %% [markdown]
+# When running in JupyterHub or Binder, call the `infer_jupyter_config` function to detect the proxy configuration.
 
-File1="ArtikelList.md"
-File2="README05.md"
-File3="+Resume04.md"
-MdFile="AWresume.md"
-Asni="TOC10+.md"
+# %%
+JupyterDash.infer_jupyter_proxy_config()
 
-image_path = 'assets/WagnerFoto.jpg'
-image = html.Img(src='assets/WagnerFoto.jpg', style={"height":"200", "width":"150", 'padding-left': 220,})
+# %% [markdown]
+# Load and preprocess data
 
+# %%
+df = pd.read_csv('https://plotly.github.io/datasets/country_indicators.csv')
+available_indicators = df['Indicator Name'].unique()
 
-def b64_image(image_filename):
-    with open(image_filename, 'rb') as f:
-        image = f.read()
-    return 'data:image/png;base64,' + base64.b64encode(image).decode('utf-8')
+# %% [markdown]
+# Construct the app and callbacks
 
-def demo_explanation(File):
-    # Markdown files
-    with open(File, "r", encoding="utf-8") as file:    
-        demo_md = file.read()
-    return html.Div(
-        html.Div([dcc.Markdown(demo_md, className="markdown")]),
-        style={"margin": "20px"},
-    )
+# %%
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-sidebar = html.Div(
-    [
-        html.H2("Sidebar", className="display-4"),
-        html.Hr(),
-        html.P(
-            "A simple sidebar layout with navigation links", className="lead"
-        ),
-        dbc.Nav(
-            [
-                dbc.NavLink("Home", href="/", active="exact"),
-                dbc.NavLink("Page 1", href="/page-1", active="exact"),
-                dbc.NavLink("Page 2", href="/page-2", active="exact"),
-                dbc.NavLink("Page 3", href="/page-3", active="exact"),
-            ],
-            vertical=True,
-            pills=True,
-        ),
-    ],
-    style=SIDEBAR_STYLE,
-)
+app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
 
-content = html.Div(id="page-content", style=CONTENT_STYLE)
-app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
+# Create server variable with Flask server object for use with gunicorn
+server = app.server
 
+app.layout = html.Div([
+    html.Div([
 
-@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
-def render_page_content(pathname):
-    if pathname == "/":
-        return html.Div(
-                [html.Div(id="demo-explanation",  children=[demo_explanation(File1)])         
-                ],style={'width':'95.0%',"height": '710px','display':'inline-block',
-                                 'overflow-y':'auto',
-                                 'marginLeft':50, 'vertical-align':'middle'},
-                  className="four columns instruction",
-            ), 
-    elif pathname == "/page-1":
-        return html.P("This is the content of page 1. Yay!")
-        return html.Div(
-                [html.Div(id="demo-explanation",  children=[demo_explanation(File2)])         
-                ],style={'width':'95.0%',"height": '710px','display':'inline-block',
-                                 'overflow-y':'auto',
-                                 'marginLeft':50, 'vertical-align':'middle'},
-                  className="four columns instruction",
+        html.Div([
+            dcc.Dropdown(
+                id='crossfilter-xaxis-column',
+                options=[{'label': i, 'value': i} for i in available_indicators],
+                value='Fertility rate, total (births per woman)'
             ),
-    elif pathname == "/page-2":
-        return html.Div(
-             [html.Div(id="demo-explanation", children=[demo_explanation(MdFile)])],
-               style={'width':'95.0%',"height": '710px','display':'inline-block',
-                      'overflow-y':'auto', 'color': 'yellow', "font-size": "1.4rem",
-                      'marginLeft':50, 'vertical-align':'middle'},
-               className="four columns instruction",         
+            dcc.RadioItems(
+                id='crossfilter-xaxis-type',
+                options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
+                value='Linear',
+                labelStyle={'display': 'inline-block'}
+            )
+        ],
+        style={'width': '49%', 'display': 'inline-block'}),
+
+        html.Div([
+            dcc.Dropdown(
+                id='crossfilter-yaxis-column',
+                options=[{'label': i, 'value': i} for i in available_indicators],
+                value='Life expectancy at birth, total (years)'
+            ),
+            dcc.RadioItems(
+                id='crossfilter-yaxis-type',
+                options=[{'label': i, 'value': i} for i in ['Linear', 'Log']],
+                value='Linear',
+                labelStyle={'display': 'inline-block'}
+            )
+        ], style={'width': '49%', 'float': 'right', 'display': 'inline-block'})
+    ], style={
+        'borderBottom': 'thin lightgrey solid',
+        'backgroundColor': 'rgb(250, 250, 250)',
+        'padding': '10px 5px'
+    }),
+
+    html.Div([
+        dcc.Graph(
+            id='crossfilter-indicator-scatter',
+            hoverData={'points': [{'customdata': 'Japan'}]}
         )
-    
-    elif pathname == "/page-3":
-        return html.Div(
-             [html.Div(id="demo-explanation", children=[demo_explanation(Asni)])],
-               style={'width':'95.0%',"height": '710px','display':'inline-block',
-                      'overflow-y':'auto', 'color': 'yellow', "font-size": "1.4rem",
-                      'marginLeft':50, 'vertical-align':'middle'},
-               className="four columns instruction",         
+    ], style={'width': '49%', 'display': 'inline-block', 'padding': '0 20'}),
+    html.Div([
+        dcc.Graph(id='x-time-series'),
+        dcc.Graph(id='y-time-series'),
+    ], style={'display': 'inline-block', 'width': '49%'}),
+
+    html.Div(dcc.Slider(
+        id='crossfilter-year--slider',
+        min=df['Year'].min(),
+        max=df['Year'].max(),
+        value=df['Year'].max(),
+        marks={str(year): str(year) for year in df['Year'].unique()},
+        step=None
+    ), style={'width': '49%', 'padding': '0px 20px 20px 20px'})
+])
+
+
+@app.callback(
+    dash.dependencies.Output('crossfilter-indicator-scatter', 'figure'),
+    [dash.dependencies.Input('crossfilter-xaxis-column', 'value'),
+     dash.dependencies.Input('crossfilter-yaxis-column', 'value'),
+     dash.dependencies.Input('crossfilter-xaxis-type', 'value'),
+     dash.dependencies.Input('crossfilter-yaxis-type', 'value'),
+     dash.dependencies.Input('crossfilter-year--slider', 'value')])
+def update_graph(xaxis_column_name, yaxis_column_name,
+                 xaxis_type, yaxis_type,
+                 year_value):
+    dff = df[df['Year'] == year_value]
+
+    return {
+        'data': [dict(
+            x=dff[dff['Indicator Name'] == xaxis_column_name]['Value'],
+            y=dff[dff['Indicator Name'] == yaxis_column_name]['Value'],
+            text=dff[dff['Indicator Name'] == yaxis_column_name]['Country Name'],
+            customdata=dff[dff['Indicator Name'] == yaxis_column_name]['Country Name'],
+            mode='markers',
+            marker={
+                'size': 25,
+                'opacity': 0.7,
+                'color': 'orange',
+                'line': {'width': 2, 'color': 'purple'}
+            }
+        )],
+        'layout': dict(
+            xaxis={
+                'title': xaxis_column_name,
+                'type': 'linear' if xaxis_type == 'Linear' else 'log'
+            },
+            yaxis={
+                'title': yaxis_column_name,
+                'type': 'linear' if yaxis_type == 'Linear' else 'log'
+            },
+            margin={'l': 40, 'b': 30, 't': 10, 'r': 0},
+            height=450,
+            hovermode='closest'
         )
-       
-    return dbc.Jumbotron(
-        [
-            html.H1("404: Not found", className="text-danger"),
-            html.Hr(),
-            html.P(f"The pathname {pathname} was not recognised..."),
-        ]
-    )
+    }
 
 
-def snapshot_page(value):
-    if value == 'Об авторе (профиль)':
-        img=1
-        Text="Профессиональный профиль"
-        MDfile=profil
-    elif value == 'Об авторе (биография)':
-        img=1
-        Text="Краткая биография"
-        MDfile=resume
-    elif value == 'Об авторе (проекты)':
-        img=1
-        Text="Научно-технические проекты (1974-2023)"
-        MDfile=proects
-    elif value == 'Об авторе (публикации)':
-        img=1
-        Text="Публикации (70+)"
-        #MDfile=papers
-        MDfile=papers2023
-    elif value == 'Об авторе (Контакты)':
-        img=1
-        Text="Контакты"
-        MDfile=kontakt
-    elif value == 'Система: инструкция':
-        img=0
-        Text='Инструкция по эксплуатации Аналитической Информационной Системы «АИС ВTИИ»'
-        MDfile=System1      
-    elif value == 'Система: описание':
-        img=0
-        Text="Аналитическая Информационная Система «АИС ВTИИ»"
-        MDfile=System2   
-    elif value == 'Система: история создания':
-        img=0
-        Text="История разработки Аналитической Информационной Системы в медицине, здравоохранении и смежных областях"
-        MDfile=System3     
-            
-    if img==1:
-        return html.Div([
-            html.Div([
-            html.Div(id='tabs-div', children=[image], className='tab-div'), 
-            html.H1(children=Text, style={'color': 'white', 'textAlign': 'left', 'padding-left': 100}),
-            html.H1(children="x", style={'color': "#111111", 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem", "line-height": "0.7em"}),            
-            html.Div([dcc.Markdown(children=MDfile)], style={'color': 'yellow', "font-size": "1.4rem", 'padding-left': 100, 'display': 'display-inblock'}),
-            #html.Br()    
-         ]),
-        ])
-    elif img==0:
-        return html.Div([
-            html.Div([
-            html.H1(children=Text, style={'color': 'white', 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem"}),    
-            html.H1(children="x", style={'color': "#111111", 'textAlign': 'left', 'padding-left': 100, "font-size": "2.4rem", "line-height": "0.7em"}),            
-            html.Div([dcc.Markdown(children=MDfile)], style={'color': 'yellow', "font-size": "1.4rem", 'padding-left': 100, 'display': 'display-inblock'}),
-            html.Br()    
-             ]),
-            ])    
+def create_time_series(dff, axis_type, title):
+    return {
+        'data': [dict(
+            x=dff['Year'],
+            y=dff['Value'],
+            mode='lines+markers'
+        )],
+        'layout': {
+            'height': 225,
+            'margin': {'l': 20, 'b': 30, 'r': 10, 't': 10},
+            'annotations': [{
+                'x': 0, 'y': 0.85, 'xanchor': 'left', 'yanchor': 'bottom',
+                'xref': 'paper', 'yref': 'paper', 'showarrow': False,
+                'align': 'left', 'bgcolor': 'rgba(255, 255, 255, 0.5)',
+                'text': title
+            }],
+            'yaxis': {'type': 'linear' if axis_type == 'Linear' else 'log'},
+            'xaxis': {'showgrid': False}
+        }
+    }
 
 
-if __name__ == "__main__":
-    app.run_server(debug=False, port=8054)
+@app.callback(
+    dash.dependencies.Output('x-time-series', 'figure'),
+    [dash.dependencies.Input('crossfilter-indicator-scatter', 'hoverData'),
+     dash.dependencies.Input('crossfilter-xaxis-column', 'value'),
+     dash.dependencies.Input('crossfilter-xaxis-type', 'value')])
+def update_y_timeseries(hoverData, xaxis_column_name, axis_type):
+    country_name = hoverData['points'][0]['customdata']
+    dff = df[df['Country Name'] == country_name]
+    dff = dff[dff['Indicator Name'] == xaxis_column_name]
+    title = '<b>{}</b><br>{}'.format(country_name, xaxis_column_name)
+    return create_time_series(dff, axis_type, title)
+
+
+@app.callback(
+    dash.dependencies.Output('y-time-series', 'figure'),
+    [dash.dependencies.Input('crossfilter-indicator-scatter', 'hoverData'),
+     dash.dependencies.Input('crossfilter-yaxis-column', 'value'),
+     dash.dependencies.Input('crossfilter-yaxis-type', 'value')])
+def update_x_timeseries(hoverData, yaxis_column_name, axis_type):
+    dff = df[df['Country Name'] == hoverData['points'][0]['customdata']]
+    dff = dff[dff['Indicator Name'] == yaxis_column_name]
+    return create_time_series(dff, axis_type, yaxis_column_name)
+
+
+# %% [markdown]
+# Serve the app using `run_server`.  Unlike the standard `Dash.run_server` method, the `JupyterDash.run_server` method doesn't block execution of the notebook. It serves the app in a background thread, making it possible to run other notebook calculations while the app is running.
+#
+# This makes it possible to iteratively update the app without rerunning the potentially expensive data processing steps.
+
+# %%
+app.run_server()
+app.run_server(mode="inline")

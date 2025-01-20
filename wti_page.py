@@ -8,9 +8,9 @@ import dash_html_components as html
 import pandas as pd
 df = pd.read_csv('https://plotly.github.io/datasets/country_indicators.csv')
 available_indicators = df['Indicator Name'].unique()
-#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 #app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
-app = dash.Dash(external_stylesheets=[dbc.themes.LUX])
+app = dash.Dash(external_stylesheets=external_stylesheets)
 # Create server variable with Flask server object for use with gunicorn
 server = app.server
 app.layout = html.Div([

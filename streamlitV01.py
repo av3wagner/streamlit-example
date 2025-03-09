@@ -179,7 +179,7 @@ def PdfExport():
              
 def select_file():
     #parent_path = '/app/streamlit-example'
-    parent_path = '/streamlit-example'
+    parent_path = path #'/streamlit-example'
     fileList = []
     extensions = ['pdf', 'docx']
     fileList = listdir(parent_path)

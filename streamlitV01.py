@@ -178,7 +178,8 @@ def PdfExport():
             show_pdf(uploaded_file.name)
              
 def select_file():
-    parent_path = '/app/streamlit-example'
+    #parent_path = '/app/streamlit-example'
+    parent_path = '/streamlit-example'
     fileList = []
     extensions = ['pdf', 'docx']
     fileList = listdir(parent_path)

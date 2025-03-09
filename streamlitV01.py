@@ -10,9 +10,9 @@ from os import listdir
 from os.path import isfile, join
 import glob
 import streamlit.components.v1 as components
-import os; 
+import os 
 os.chdir("/mount/src/streamlit-example/")
-sys.path.append("/mount/src/<project-name>/src/")
+sys.path.append("/mount/src/streamlit-example/")
 
 options = "Home"
 path = os.getcwd()

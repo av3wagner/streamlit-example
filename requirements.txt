@@ -1,6 +1,4 @@
-#altair
 pandas
-#streamlit
 gunicorn>=19.9.0
 chart-studio==1.1.0
 dash==2.11.1
@@ -15,3 +13,13 @@ plotly==5.16.0
 prophet==1.1.4
 requests==2.31.0
 urllib3==1.26.16
+
+streamlit
+toml
+seaborn
+matplotlib
+scikit-learn
+scikit-plot
+scipy==1.11.4
+xgboost
+lightgbm
